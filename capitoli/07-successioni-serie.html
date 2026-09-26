@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Successioni e serie numeriche · Analisi 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Instrument+Sans:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<input type="checkbox" id="menu" class="menu-toggle" aria-label="Apri l'indice">
+<header class="bar"><label for="menu" class="menu-btn">Indice</label><span class="bar-title">Analisi Matematica 1 · Uniud</span></header>
+<nav class="toc" aria-label="Capitoli"><div class="toc-head">Analisi Matematica 1</div><ol><li><a href="../index.html">Copertina</a></li>
+<li><a href="../capitoli/01-logica-insiemi.html"><span class="n">1</span>Logica, insiemi e quantificatori</a></li>
+<li><a href="../capitoli/02-intervalli.html"><span class="n">2</span>Insiemi numerici e intervalli</a></li>
+<li><a href="../capitoli/03-numeri-complessi.html"><span class="n">3</span>I numeri complessi</a></li>
+<li><a href="../capitoli/04-funzioni-reali.html"><span class="n">4</span>Funzioni reali di una variabile</a></li>
+<li><a href="../capitoli/05-limiti-continuita.html"><span class="n">5</span>Limiti e continuità</a></li>
+<li><a href="../capitoli/06-derivate.html"><span class="n">6</span>Le derivate</a></li>
+<li><a href="../capitoli/07-successioni-serie.html" aria-current="page"><span class="n">7</span>Successioni e serie numeriche</a></li>
+<li><a href="../capitoli/08-serie-di-potenze.html"><span class="n">8</span>Serie di potenze</a></li>
+<li><a href="../capitoli/09-integrali.html"><span class="n">9</span>Calcolo integrale in una variabile</a></li>
+<li><a href="../capitoli/10-funzioni-razionali.html"><span class="n">10</span>Integrazione delle funzioni razionali</a></li>
+<li><a href="../capitoli/11-integrali-impropri.html"><span class="n">11</span>Integrali impropri</a></li>
+<li><a href="../capitoli/12-integrali-senso-pratico.html"><span class="n">12</span>A cosa servono gli integrali</a></li>
+<li class="off"><span class="n">13</span>Calcolo differenziale in più variabili</li>
+<li class="off"><span class="n">14</span>Equazioni differenziali ordinarie</li></ol></nav>
+<main class="page"><header class="ch-head"><div class="ch-num">Capitolo 7</div><h1>Successioni e serie numeriche</h1><p class="ch-sub">Limiti di successioni, serie geometrica e armonica, criteri di convergenza</p></header>
+<details class="mini" open><summary>In questo capitolo</summary><ol><li><a href="#che-cosè-una-successione">1. Che cos&#x27;è una successione</a></li><li><a href="#il-limite-di-una-successione">2. Il limite di una
+successione</a></li><li><a href="#successioni-notevoli-da-conoscere">3. Successioni notevoli da
+conoscere</a></li><li><a href="#dalla-successione-alla-serie">4. Dalla successione alla
+serie</a></li><li><a href="#la-serie-geometrica-lesempio-madre">5. La serie geometrica
+(l&#x27;esempio madre)</a></li><li><a href="#la-condizione-necessaria-e-un-tranello">6. La condizione
+necessaria (e un tranello)</a></li><li><a href="#i-criteri-di-convergenza-termini-positivi">7. I criteri di
+convergenza (termini positivi)</a></li><li><a href="#serie-a-segni-alterni-il-criterio-di-leibniz">8. Serie a segni
+alterni: il criterio di Leibniz</a></li><li><a href="#un-primo-sguardo-alle-serie-di-potenze">9. Un primo sguardo alle
+serie di potenze</a></li><li><a href="#a-cosa-serve-in-elettronica">10. A cosa serve in
+elettronica</a></li><li><a href="#errori-tipici-da-evitare">Errori tipici da evitare</a></li><li><a href="#che-criterio-uso">Che criterio uso?</a></li><li><a href="#la-stessa-cosa-in-tabella">La stessa cosa in tabella</a></li><li><a href="#prima-ancora-lo-riconosci-a-colpo-docchio">Prima ancora: lo
+riconosci a colpo d&#x27;occhio?</a></li><li><a href="#i-tuoi-esercizi-letti-con-lo-schema">I tuoi esercizi, letti con
+lo schema</a></li><li><a href="#schema-generale-di-riferimento">Schema generale di riferimento</a></li><li><a href="#a-successioni">A · Successioni</a></li><li><a href="#b-serie-numeriche">B · Serie numeriche</a></li><li><a href="#c-criteri-di-convergenza-termini-positivi">C · Criteri di
+convergenza (termini positivi)</a></li><li><a href="#d-serie-a-segni-alterni-leibniz">D · Serie a segni alterni —
+Leibniz</a></li><li><a href="#e-serie-di-potenze">E · Serie di potenze</a></li><li><a href="#che-criterio-uso-in-breve">Che criterio uso? (in breve)</a></li><li><a href="#esercizi-svolti">Esercizi svolti</a></li><li><a href="#livello-1-limiti-di-successioni">Livello 1 · Limiti di
+successioni</a></li><li><a href="#livello-2-carattere-di-una-serie">Livello 2 · Carattere di una
+serie</a></li><li><a href="#livello-3-criteri-allopera">Livello 3 · Criteri all&#x27;opera</a></li><li><a href="#metodi-chiave-da-ricordare">Metodi chiave (da ricordare)</a></li></ol></details>
+<article class="testo"><p>Blocco <strong>successioni e serie</strong> del programma di Udine
+(MATH-03/A). Dopo i limiti di funzioni (Lezione 3) e le derivate
+(Lezione 4), qui impariamo a fare limiti di <strong>successioni</strong>
+e a dare senso all'idea di <strong>sommare infiniti numeri</strong>: le
+serie numeriche, con i loro criteri di convergenza, e un primo sguardo
+alle serie di potenze.</p><h2 id="che-cosè-una-successione">1. Che cos'è una successione</h2>
+<p>Una <strong>successione</strong> è una lista ordinata e infinita di
+numeri: un primo termine, un secondo, un terzo… uno per ogni numero
+naturale n. Si scrive a<sub>n</sub> e si legge “termine n-esimo”. È come
+una funzione che a ogni n = 1, 2, 3, … associa un numero.</p>
+<ul>
+<li><blockquote>
+<p>Aritmetica: 2, 5, 8, 11, … (si aggiunge sempre lo stesso passo).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Geometrica: 1, ½, ¼, ⅛, … (si moltiplica sempre per lo stesso
+fattore, qui q = ½).</p>
+</blockquote></li>
+<li><blockquote>
+<p>La più usata: a<sub>n</sub> = 1/n, cioè 1, ½, ⅓, ¼, … che si avvicina
+a zero.</p>
+</blockquote></li>
+</ul>
+<h2 id="il-limite-di-una-successione">2. Il limite di una
+successione</h2>
+<p>La domanda chiave è: <strong>dove vanno a finire i termini quando n
+diventa enorme?</strong> Se si avvicinano sempre di più a un numero L,
+la successione è <strong>convergente</strong> e L è il suo limite. Se
+crescono senza fermarsi è <strong>divergente</strong>; se saltano senza
+stabilizzarsi è <strong>indeterminata</strong>.</p>
+<div class="plate"><img src="../img/07-successioni-serie/Analisi1_Lezione05_Successioni_e_serie_image6.png" alt="" loading="lazy" class="figura" style="width:min(499px,100%)"></div>
+<p class="caption">Fig. 1 — La successione aₙ = 1 + 1/n: i punti scendono e si
+avvicinano sempre più alla retta L = 1. La successione converge a
+1.</p>
+<h2 id="successioni-notevoli-da-conoscere">3. Successioni notevoli da
+conoscere</h2>
+<div class="tscroll"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Successione</strong></th>
+<th><strong>Comportamento</strong></th>
+</tr>
+<tr class="odd">
+<th>1/n</th>
+<th>→ 0</th>
+</tr>
+<tr class="header">
+<th>q ⁿ con |q| &lt; 1</th>
+<th>→ 0</th>
+</tr>
+<tr class="odd">
+<th>q ⁿ con |q| &gt; 1</th>
+<th>→ +∞ (diverge)</th>
+</tr>
+<tr class="header">
+<th>(1 + 1/n) ⁿ</th>
+<th>→ e ≈ 2,718</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<p>Il caso geometrico q<sup>n</sup> è il più importante: tutto dipende
+da quanto vale q. Se |q| &lt; 1 i termini si spengono verso zero; se |q|
+&gt; 1 esplodono.</p>
+<div class="plate"><img src="../img/07-successioni-serie/Analisi1_Lezione05_Successioni_e_serie_image3.png" alt="" loading="lazy" class="figura" style="width:min(499px,100%)"></div>
+<p class="caption">Fig. 2 — La geometrica qⁿ: con q = 0,7 i termini vanno a zero;
+con q = 1,2 crescono senza limite. La soglia è |q| = 1.</p>
+<h2 id="dalla-successione-alla-serie">4. Dalla successione alla
+serie</h2>
+<p>Una <strong>serie</strong> è il tentativo di <strong>sommare tutti i
+termini di una successione</strong>: a₁ + a₂ + a₃ + … all'infinito. Non
+potendo sommare davvero infiniti numeri, si sommano i primi N e si
+guarda dove va questo totale al crescere di N. Il totale dei primi N
+termini si chiama <strong>somma parziale</strong> S<sub>N</sub>.</p>
+<p><strong>S_N = a₁ + a₂ + … + a_N</strong></p>
+<p>Se le somme parziali S<sub>N</sub> tendono a un numero finito S, la
+serie <strong>converge</strong> e S è la sua somma. Se crescono senza
+limite, la serie <strong>diverge</strong>. In pratica: lo studio di una
+serie è lo studio del limite della successione delle sue somme
+parziali.</p>
+<h2 id="la-serie-geometrica-lesempio-madre">5. La serie geometrica
+(l'esempio madre)</h2>
+<p>È la serie dei termini di una geometrica: 1 + q + q² + q³ + … Il suo
+comportamento è tutto nel valore di q:</p>
+<ul>
+<li><blockquote>
+<p>se |q| &lt; 1 la serie <strong>converge</strong> e la somma vale 1 /
+(1 − q);</p>
+</blockquote></li>
+<li><blockquote>
+<p>se |q| ≥ 1 la serie <strong>diverge</strong>.</p>
+</blockquote></li>
+</ul>
+<p>Esempio. Con q = ½: 1 + ½ + ¼ + ⅛ + … = 1 / (1 − ½) =
+<strong>2</strong>. Ogni termine aggiunge metà di quanto manca
+all'obiettivo: ci si avvicina a 2 senza mai superarlo.</p>
+<div class="plate"><img src="../img/07-successioni-serie/Analisi1_Lezione05_Successioni_e_serie_image5.png" alt="" loading="lazy" class="figura" style="width:min(499px,100%)"></div>
+<p class="caption">Fig. 3 — Somme parziali di 1 + ½ + ¼ + …: i “gradini” si
+accumulano e la somma si stabilizza a S = 2.</p>
+<h2 id="la-condizione-necessaria-e-un-tranello">6. La condizione
+necessaria (e un tranello)</h2>
+<p>Perché una serie possa convergere, i suoi termini <strong>devono
+tendere a zero</strong> (a<sub>n</sub> → 0). Se i termini non si
+spengono, sommarne infiniti dà per forza infinito. Attenzione però: è
+una condizione <strong>necessaria ma non sufficiente</strong>.</p>
+<p>Il tranello classico è la <strong>serie armonica</strong> 1 + ½ + ⅓ +
+¼ + … : i termini 1/n vanno a zero, eppure la somma
+<strong>diverge</strong> (cresce lentissima, ma senza fermarsi). Quindi
+“termini che vanno a zero” non basta a garantire la convergenza.</p>
+<div class="plate"><img src="../img/07-successioni-serie/Analisi1_Lezione05_Successioni_e_serie_image4.png" alt="" loading="lazy" class="figura" style="width:min(499px,100%)"></div>
+<p class="caption">Fig. 4 — Stessa premessa (termini → 0), esiti opposti: la serie
+armonica ∑1/n diverge, mentre ∑1/n² converge a circa 1,645.</p>
+<h2 id="i-criteri-di-convergenza-termini-positivi">7. I criteri di
+convergenza (termini positivi)</h2>
+<p>Quando i termini sono positivi, per decidere se una serie converge si
+usano alcuni <strong>criteri</strong> pratici, da provare in
+quest'ordine:</p>
+<ul>
+<li><blockquote>
+<p>Confronto: se a<sub>n</sub> ≤ b<sub>n</sub> e ∑b<sub>n</sub>
+converge, converge anche ∑a<sub>n</sub>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Confronto asintotico: se a<sub>n</sub> si comporta come una serie
+nota (spesso 1/n<sup>α</sup>), hanno lo stesso destino.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Criterio del rapporto: si calcola il limite di a<sub>n+1</sub> /
+a<sub>n</sub>. Se &lt; 1 converge, se &gt; 1 diverge. Ottimo con
+fattoriali ed esponenziali.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Criterio della radice: si calcola il limite della radice n-esima di
+a<sub>n</sub>. Stessa regola: &lt; 1 converge, &gt; 1 diverge.</p>
+</blockquote></li>
+</ul>
+<p>Serie di riferimento — la <strong>armonica generalizzata</strong> ∑
+1/n<sup>α</sup>: converge se α &gt; 1, diverge se α ≤ 1. È il metro con
+cui si confrontano moltissime altre serie.</p>
+<h2 id="serie-a-segni-alterni-il-criterio-di-leibniz">8. Serie a segni
+alterni: il criterio di Leibniz</h2>
+<p>Se i termini cambiano segno a ogni passo (+, −, +, −, …), basta molto
+meno per convergere. <strong>Criterio di Leibniz</strong>: se i valori
+assoluti dei termini <strong>decrescono</strong> e <strong>tendono a
+zero</strong>, la serie converge.</p>
+<p>Esempio. La serie armonica a segni alterni 1 − ½ + ⅓ − ¼ + … converge
+(a ln 2 ≈ 0,693), pur avendo gli stessi termini 1/n che, tutti positivi,
+facevano divergere la serie.</p>
+<div class="plate"><img src="../img/07-successioni-serie/Analisi1_Lezione05_Successioni_e_serie_image1.png" alt="" loading="lazy" class="figura" style="width:min(499px,100%)"></div>
+<p class="caption">Fig. 5 — Le somme parziali oscillano sopra e sotto, con
+oscillazioni sempre più piccole, e convergono a ln 2 (criterio di
+Leibniz).</p>
+<h2 id="un-primo-sguardo-alle-serie-di-potenze">9. Un primo sguardo alle
+serie di potenze</h2>
+<p>Una <strong>serie di potenze</strong> è una serie i cui termini
+contengono le potenze di una variabile x: c₀ + c₁x + c₂x² + c₃x³ + … Non
+è più un solo numero, ma una <strong>funzione</strong> di x, definita là
+dove la serie converge.</p>
+<p>Esiste un <strong>raggio di convergenza</strong> R: per |x| &lt; R la
+serie converge, per |x| &gt; R diverge. Il fatto notevole è che molte
+funzioni familiari <strong>sono</strong> una serie di potenze: per
+esempio</p>
+<p><strong>eˣ = 1 + x + x²/2! + x³/3! + …</strong></p>
+<p>Sommando sempre più termini (i polinomi di Taylor, Lezione 4) ci si
+avvicina sempre di più alla curva vera.</p>
+<div class="plate"><img src="../img/07-successioni-serie/Analisi1_Lezione05_Successioni_e_serie_image2.png" alt="" loading="lazy" class="figura" style="width:min(499px,100%)"></div>
+<p class="caption">Fig. 6 — La funzione eˣ e le somme parziali della sua serie: più
+termini si aggiungono, meglio il polinomio incolla la curva.</p>
+<h2 id="a-cosa-serve-in-elettronica">10. A cosa serve in
+elettronica</h2>
+<p>Le serie non sono un esercizio astratto: sono il linguaggio con cui
+si scompongono e si approssimano i segnali.</p>
+<ul>
+<li><blockquote>
+<p>Serie di Fourier: un segnale periodico si scrive come somma (serie)
+di sinusoidi. È la base della teoria dei segnali del secondo anno.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Serie geometrica: compare nelle reti a reazione e nel calcolo di
+impedenze e guadagni con anelli ripetuti.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Serie di potenze: linearizzare un componente non lineare attorno a un
+punto di lavoro significa tenere i primi termini della sua serie.</p>
+</blockquote></li>
+</ul>
+<h2 id="errori-tipici-da-evitare">Errori tipici da evitare</h2>
+<ul>
+<li><blockquote>
+<p>Concludere che una serie converge solo perché i termini vanno a zero:
+è necessario, non sufficiente (vedi l'armonica).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Usare la formula 1/(1 − q) senza controllare che sia |q| &lt; 1:
+fuori da quel caso la serie geometrica diverge.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Confondere la successione (la lista dei termini) con la serie (la
+somma dei termini): sono due limiti diversi.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Applicare i criteri del rapporto o della radice a serie a segni
+alterni sui termini con segno: vanno usati sui valori assoluti, e per
+l'alternanza c'è Leibniz.</p>
+</blockquote></li>
+</ul>
+
+<h2 class="parte" id="che-criterio-uso">Che criterio uso?</h2>
+<p>La regola d'oro: non si sceglie a intuito — è la <strong>forma del
+termine aₙ</strong> che decide lo strumento. Guardi com'è fatto aₙ e
+segui lo schema dall'alto verso il basso, fermandoti al primo caso che
+scatt<img src="../img/07-successioni-serie/Analisi1_Lezione05_Che_criterio_uso_image1.png" alt="" loading="lazy" class="figura" style="width:min(733px,100%)"></p><h2 id="la-stessa-cosa-in-tabella">La stessa cosa in tabella</h2>
+<div class="tscroll"><table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 28%" />
+<col style="width: 43%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Se in aₙ vedi…</strong></th>
+<th><strong>Usa</strong></th>
+<th><strong>Perché</strong></th>
+</tr>
+<tr class="odd">
+<th>(−1)<sup>n</sup> (segni alterni)</th>
+<th>Leibniz</th>
+<th>basta che |termini| scendano e vadano a 0</th>
+</tr>
+<tr class="header">
+<th>n! oppure c<sup>n</sup> (2<sup>n</sup>, 3<sup>n</sup>…)</th>
+<th>Criterio del rapporto</th>
+<th>dividendo termini consecutivi, fattoriali ed esponenziali si
+semplificano</th>
+</tr>
+<tr class="odd">
+<th>tutto il termine è (…)<sup>n</sup></th>
+<th>Criterio della radice</th>
+<th>la radice n-esima annulla l'esponente n</th>
+</tr>
+<tr class="header">
+<th>solo potenze e radici di n(niente n! né c<sup>n</sup>)</th>
+<th>Confronto asintotico</th>
+<th>lo confronti con 1/n<sup>α</sup>, di cui sai già tutto</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<h2 id="prima-ancora-lo-riconosci-a-colpo-docchio">Prima ancora: lo
+riconosci a colpo d'occhio?</h2>
+<div class="tscroll"><table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Forma</strong></th>
+<th><strong>Nome</strong></th>
+<th><strong>Converge se…</strong></th>
+</tr>
+<tr class="odd">
+<th>q<sup>n</sup></th>
+<th>geometrica</th>
+<th>|q| &lt; 1 → somma 1/(1−q)</th>
+</tr>
+<tr class="header">
+<th>1/n<sup>α</sup></th>
+<th>armonica generalizzata</th>
+<th>α &gt; 1</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<p><em>In questi due casi non serve nessun criterio: applichi
+direttamente la formula.</em></p>
+<h2 id="i-tuoi-esercizi-letti-con-lo-schema">I tuoi esercizi, letti con
+lo schema</h2>
+<div class="tscroll"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Serie</strong></th>
+<th><strong>Come la riconosci</strong></th>
+</tr>
+<tr class="odd">
+<th>∑ 1/n²</th>
+<th>solo potenze di n → armonica, α = 2 → <strong>converge</strong></th>
+</tr>
+<tr class="header">
+<th>∑ 1/√n</th>
+<th>armonica, α = 1/2 → <strong>diverge</strong></th>
+</tr>
+<tr class="odd">
+<th>∑ n / 2<sup>n</sup></th>
+<th>c'è 2<sup>n</sup> (esponenziale) → <strong>rapporto</strong></th>
+</tr>
+<tr class="header">
+<th>∑ (−1)<sup>n+1</sup> / n</th>
+<th>segni alterni → <strong>Leibniz</strong></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+
+<h2 class="parte" id="schema-generale-di-riferimento">Schema generale di riferimento</h2>
+<h2 id="a-successioni">A · Successioni</h2>
+<p>Lista infinita di numeri a<sub>n</sub>, uno per ogni n. Interessa
+dove tendono i termini quando n → ∞.</p>
+<h3 id="i-tre-destini">I tre destini</h3>
+<div class="tscroll"><table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 35%" />
+<col style="width: 32%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Comportamento</strong></th>
+<th><strong>Esempio</strong></th>
+<th><strong>Come si dice</strong></th>
+</tr>
+<tr class="odd">
+<th>tende a L finito</th>
+<th>1/n → 0</th>
+<th>converge</th>
+</tr>
+<tr class="header">
+<th>tende a ±∞</th>
+<th><img src="../img/07-successioni-serie/Analisi1_Schema_generale_successioni_e_serie_image10.png" alt="" loading="lazy" class="formula" style="width:min(25px,100%)"> (q&gt;1) → +∞</th>
+<th>diverge</th>
+</tr>
+<tr class="odd">
+<th>oscilla</th>
+<th>(−1)<sup>n</sup></th>
+<th>indeterminata</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<h3 id="limiti-notevoli">Limiti notevoli</h3>
+<p><img src="../img/07-successioni-serie/Analisi1_Schema_generale_successioni_e_serie_image4.png" alt="" loading="lazy" class="formula" style="width:min(90px,100%)"><img src="../img/07-successioni-serie/Analisi1_Schema_generale_successioni_e_serie_image12.png" alt="" loading="lazy" class="formula" style="width:min(171px,100%)"></p>
+<p>Geometrica <img src="../img/07-successioni-serie/Analisi1_Schema_generale_successioni_e_serie_image10.png" alt="" loading="lazy" class="formula" style="width:min(24px,100%)"> secondo q:</p>
+<div class="tscroll"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Valore di q</strong></th>
+<th><strong>Limite</strong></th>
+</tr>
+<tr class="odd">
+<th>|q| &lt; 1</th>
+<th>→ 0</th>
+</tr>
+<tr class="header">
+<th>q = 1</th>
+<th>→ 1</th>
+</tr>
+<tr class="odd">
+<th>q &gt; 1</th>
+<th>→ +∞ (diverge)</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<h3 id="tecnica-per-la-forma-rapporto-di-polinomi">Tecnica per la forma
+∞/∞ (rapporto di polinomi)</h3>
+<div class="plate"><img src="../img/07-successioni-serie/Analisi1_Schema_generale_successioni_e_serie_image1.png" alt="" loading="lazy" class="formula" style="width:min(172px,100%)"></div>
+<ul>
+<li><blockquote>
+<p>grado sopra &lt; grado sotto → limite 0;</p>
+</blockquote></li>
+<li><blockquote>
+<p>gradi uguali → rapporto dei coefficienti di grado massimo;</p>
+</blockquote></li>
+<li><blockquote>
+<p>grado sopra &gt; grado sotto → limite ±∞.</p>
+</blockquote></li>
+</ul>
+<h2 id="b-serie-numeriche">B · Serie numeriche</h2>
+<p>Somma di tutti i termini. Si studia con le somme parziali
+S<sub>N</sub> = a₁+…+a<sub>N</sub>: la serie converge se S<sub>N</sub>
+tende a un numero finito.</p>
+<h3 id="serie-geometrica">Serie geometrica</h3>
+<p>Converge se e solo se |q| &lt; 1. Somma secondo l'indice di
+partenza:</p>
+<div class="tscroll"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Da n = 0</strong></th>
+<th><strong>Da n = 1</strong></th>
+</tr>
+<tr class="odd">
+<th><img src="../img/07-successioni-serie/Analisi1_Schema_generale_successioni_e_serie_image9.png" alt="" loading="lazy" class="formula" style="width:min(115px,100%)"></th>
+<th><img src="../img/07-successioni-serie/Analisi1_Schema_generale_successioni_e_serie_image11.png" alt="" loading="lazy" class="formula" style="width:min(115px,100%)"></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<h3 id="condizione-necessaria-non-sufficiente">Condizione necessaria
+(non sufficiente)</h3>
+<p>Se la serie converge, allora <img src="../img/07-successioni-serie/Analisi1_Schema_generale_successioni_e_serie_image13.png" alt="" loading="lazy" class="formula" style="width:min(57px,100%)"> . Ma non basta: l'armonica ∑
+1/n ha termini → 0 e diverge lo stesso.</p>
+<h3 id="serie-armonica-generalizzata">Serie armonica generalizzata</h3>
+<p><img src="../img/07-successioni-serie/Analisi1_Schema_generale_successioni_e_serie_image8.png" alt="" loading="lazy" class="formula" style="width:min(52px,100%)"> converge se <strong>α &gt;
+1</strong>, diverge se α ≤ 1. È il metro di confronto.</p>
+<h2 id="c-criteri-di-convergenza-termini-positivi">C · Criteri di
+convergenza (termini positivi)</h2>
+<div class="tscroll"><table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 38%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Criterio</strong></th>
+<th><strong>Come si usa</strong></th>
+<th><strong>Verdetto</strong></th>
+</tr>
+<tr class="odd">
+<th>Confronto</th>
+<th>0 ≤ a<sub>n</sub> ≤ b<sub>n</sub></th>
+<th>∑b<sub>n</sub> conv → ∑a<sub>n</sub> conv</th>
+</tr>
+<tr class="header">
+<th>Confronto asintotico</th>
+<th><img src="../img/07-successioni-serie/Analisi1_Schema_generale_successioni_e_serie_image2.png" alt="" loading="lazy" class="formula" style="width:min(69px,100%)"></th>
+<th>stesso carattere di 1/nᵅ</th>
+</tr>
+<tr class="odd">
+<th>Rapporto</th>
+<th><img src="../img/07-successioni-serie/Analisi1_Schema_generale_successioni_e_serie_image5.png" alt="" loading="lazy" class="formula" style="width:min(97px,100%)"></th>
+<th>L&lt;1 conv · L&gt;1 div · L=1 nulla</th>
+</tr>
+<tr class="header">
+<th>Radice</th>
+<th><img src="../img/07-successioni-serie/Analisi1_Schema_generale_successioni_e_serie_image6.png" alt="" loading="lazy" class="formula" style="width:min(109px,100%)"></th>
+<th>L&lt;1 conv · L&gt;1 div · L=1 nulla</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<p><em>Rapporto → con fattoriali ed esponenziali; radice → con potenze
+n-esime.</em></p>
+<h2 id="d-serie-a-segni-alterni-leibniz">D · Serie a segni alterni —
+Leibniz</h2>
+<p><img src="../img/07-successioni-serie/Analisi1_Schema_generale_successioni_e_serie_image3.png" alt="" loading="lazy" class="formula" style="width:min(105px,100%)"> con b<sub>n</sub> &gt; 0
+converge se b<sub>n</sub> decresce e tende a 0.</p>
+<h2 id="e-serie-di-potenze">E · Serie di potenze</h2>
+<p>Serie nelle potenze di x: è una funzione di x, con un raggio di
+convergenza R (converge per |x| &lt; R). Molte funzioni note lo
+sono:</p>
+<div class="plate"><img src="../img/07-successioni-serie/Analisi1_Schema_generale_successioni_e_serie_image7.png" alt="" loading="lazy" class="formula" style="width:min(430px,100%)"></div>
+<h2 id="che-criterio-uso-in-breve">Che criterio uso? (in breve)</h2>
+<ul>
+<li><blockquote>
+<p>i termini non tendono a 0 → diverge subito;</p>
+</blockquote></li>
+<li><blockquote>
+<p>segni alterni (−1)<sup>n</sup> → Leibniz;</p>
+</blockquote></li>
+<li><blockquote>
+<p>c'è n! o cⁿ → criterio del rapporto;</p>
+</blockquote></li>
+<li><blockquote>
+<p>tutto elevato alla n, (…)ⁿ → criterio della radice;</p>
+</blockquote></li>
+<li><blockquote>
+<p>solo potenze/radici di n → confronto asintotico con
+1/n<sup>α</sup>;</p>
+</blockquote></li>
+<li><blockquote>
+<p>riconoscibili al volo: qⁿ (geometrica) e 1/n<sup>α</sup>
+(armonica).</p>
+</blockquote></li>
+</ul>
+
+<h2 class="parte" id="esercizi-svolti">Esercizi svolti</h2>
+<h2 id="livello-1-limiti-di-successioni">Livello 1 · Limiti di
+successioni</h2>
+<h3 id="esercizio-1">Esercizio 1</h3>
+<div class="plate"><img src="../img/07-successioni-serie/Analisi1_Lezione05_Esercizi_svolti_image3.png" alt="" loading="lazy" class="formula" style="width:min(280px,100%)"></div>
+<ul>
+<li><blockquote>
+<p>Forma ∞/∞: raccolgo n sopra e sotto; i termini con 1/n vanno a 0.</p>
+</blockquote></li>
+</ul>
+<p><strong>Risultato:</strong> il limite è 3 (stesso grado → rapporto
+dei coefficienti di grado massimo).</p>
+<h3 id="esercizio-2">Esercizio 2</h3>
+<div class="plate"><img src="../img/07-successioni-serie/Analisi1_Lezione05_Esercizi_svolti_image5.png" alt="" loading="lazy" class="formula" style="width:min(196px,100%)"></div>
+<ul>
+<li><blockquote>
+<p>Geometrica con q = 1/2 e |q| &lt; 1 → i termini si spengono a
+zero.</p>
+</blockquote></li>
+</ul>
+<p><strong>Risultato:</strong> il limite è 0 (1/2 è solo il primo
+termine, non il limite).</p>
+<h3 id="esercizio-3">Esercizio 3</h3>
+<div class="plate"><img src="../img/07-successioni-serie/Analisi1_Lezione05_Esercizi_svolti_image6.png" alt="" loading="lazy" class="formula" style="width:min(144px,100%)"></div>
+<ul>
+<li><blockquote>
+<p>I termini saltano: −1, +1, −1, +1, … (pari → +1, dispari → −1).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Due sotto-successioni con valori diversi → il limite non esiste.</p>
+</blockquote></li>
+</ul>
+<p><strong>Risultato: indeterminata</strong> (oscilla: non converge e
+non diverge a ±∞).</p>
+<h2 id="livello-2-carattere-di-una-serie">Livello 2 · Carattere di una
+serie</h2>
+<h3 id="esercizio-4">Esercizio 4</h3>
+<div class="plate"><img src="../img/07-successioni-serie/Analisi1_Lezione05_Esercizi_svolti_image4.png" alt="" loading="lazy" class="formula" style="width:min(244px,100%)"></div>
+<ul>
+<li><blockquote>
+<p>Serie geometrica con q = 2/3; |q| &lt; 1 → converge. Somma da n = 0:
+1/(1 − q).</p>
+</blockquote></li>
+</ul>
+<p><strong>Risultato: converge, somma = 3.</strong></p>
+<h3 id="esercizio-5">Esercizio 5</h3>
+<div class="plate"><img src="../img/07-successioni-serie/Analisi1_Lezione05_Esercizi_svolti_image8.png" alt="" loading="lazy" class="formula" style="width:min(262px,100%)"></div>
+<ul>
+<li><blockquote>
+<p>Armonica generalizzata: converge se α &gt; 1. Qui α = 2.</p>
+</blockquote></li>
+</ul>
+<p><strong>Risultato: converge.</strong></p>
+<h3 id="esercizio-6">Esercizio 6</h3>
+<div class="plate"><img src="../img/07-successioni-serie/Analisi1_Lezione05_Esercizi_svolti_image9.png" alt="" loading="lazy" class="formula" style="width:min(385px,100%)"></div>
+<ul>
+<li><blockquote>
+<p>Riscrivo la radice come potenza 1/2 → α = 1/2 ≤ 1 (i termini → 0, ma
+troppo lentamente).</p>
+</blockquote></li>
+</ul>
+<p><strong>Risultato: diverge.</strong></p>
+<h2 id="livello-3-criteri-allopera">Livello 3 · Criteri all'opera</h2>
+<h3 id="esercizio-7">Esercizio 7</h3>
+<div class="plate"><img src="../img/07-successioni-serie/Analisi1_Lezione05_Esercizi_svolti_image10.png" alt="" loading="lazy" class="formula" style="width:min(73px,100%)"></div>
+<ul>
+<li><blockquote>
+<p>C'è l'esponenziale 2ⁿ → criterio del rapporto:</p>
+</blockquote></li>
+</ul>
+<div class="plate"><img src="../img/07-successioni-serie/Analisi1_Lezione05_Esercizi_svolti_image11.png" alt="" loading="lazy" class="formula" style="width:min(364px,100%)"></div>
+<p><strong>Risultato: L = 1/2 &lt; 1 → converge.</strong></p>
+<h3 id="esercizio-8">Esercizio 8</h3>
+<div class="plate"><img src="../img/07-successioni-serie/Analisi1_Lezione05_Esercizi_svolti_image2.png" alt="" loading="lazy" class="formula" style="width:min(129px,100%)"></div>
+<ul>
+<li><blockquote>
+<p>Segni alterni → criterio di Leibniz (sui termini senza segno,
+1/n).</p>
+</blockquote></li>
+<li><blockquote>
+<p>1/n decresce ✓ e 1/n → 0 ✓.</p>
+</blockquote></li>
+</ul>
+<p><strong>Risultato: converge</strong> (a ln 2 ≈ 0,693; la stessa serie
+a segni tutti + divergeva).</p>
+<h3 id="esercizio-9">Esercizio 9</h3>
+<div class="plate"><img src="../img/07-successioni-serie/Analisi1_Lezione05_Esercizi_svolti_image7.png" alt="" loading="lazy" class="formula" style="width:min(370px,100%)"></div>
+<ul>
+<li><blockquote>
+<p>Solo potenze di n → confronto asintotico. Dopo la semplificazione
+resta 1/n, cioè α = 1.</p>
+</blockquote></li>
+</ul>
+<p><strong>Risultato: diverge</strong> (conta il grado che resta DOPO la
+semplificazione).</p>
+<h3 id="esercizio-10">Esercizio 10</h3>
+<div class="plate"><img src="../img/07-successioni-serie/Analisi1_Lezione05_Esercizi_svolti_image1.png" alt="" loading="lazy" class="formula" style="width:min(382px,100%)"></div>
+<ul>
+<li><blockquote>
+<p>Confronto asintotico: dopo la semplificazione resta 1/n², cioè α = 2
+&gt; 1.</p>
+</blockquote></li>
+</ul>
+<p><strong>Risultato: converge.</strong></p>
+<h2 id="metodi-chiave-da-ricordare">Metodi chiave (da ricordare)</h2>
+<ul>
+<li><blockquote>
+<p>Limite ∞/∞: raccogli la potenza di n più alta sopra e sotto,
+semplifica, i termini 1/n → 0.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Forma indeterminata (∞/∞, 0/0) = “devo lavorarci”, non “senza
+risposta”: dopo i conti il limite spesso esiste.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Scelta del criterio dalla forma di aₙ: segni alterni → Leibniz; n! o
+cⁿ → rapporto; (…)ⁿ → radice; solo potenze di n → confronto
+asintotico.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Confronto asintotico: conta l'esponente α che resta DOPO aver
+semplificato, non quello di partenza.</p>
+</blockquote></li>
+</ul>
+
+</article>
+<nav class="pn"><a class="prev" href="06-derivate.html"><small>Capitolo 6</small>Le derivate</a><a class="next" href="08-serie-di-potenze.html"><small>Capitolo 8</small>Serie di potenze</a></nav></main>
+</body>
+</html>

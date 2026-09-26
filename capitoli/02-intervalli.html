@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Insiemi numerici e intervalli · Analisi 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Instrument+Sans:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<input type="checkbox" id="menu" class="menu-toggle" aria-label="Apri l'indice">
+<header class="bar"><label for="menu" class="menu-btn">Indice</label><span class="bar-title">Analisi Matematica 1 · Uniud</span></header>
+<nav class="toc" aria-label="Capitoli"><div class="toc-head">Analisi Matematica 1</div><ol><li><a href="../index.html">Copertina</a></li>
+<li><a href="../capitoli/01-logica-insiemi.html"><span class="n">1</span>Logica, insiemi e quantificatori</a></li>
+<li><a href="../capitoli/02-intervalli.html" aria-current="page"><span class="n">2</span>Insiemi numerici e intervalli</a></li>
+<li><a href="../capitoli/03-numeri-complessi.html"><span class="n">3</span>I numeri complessi</a></li>
+<li><a href="../capitoli/04-funzioni-reali.html"><span class="n">4</span>Funzioni reali di una variabile</a></li>
+<li><a href="../capitoli/05-limiti-continuita.html"><span class="n">5</span>Limiti e continuità</a></li>
+<li><a href="../capitoli/06-derivate.html"><span class="n">6</span>Le derivate</a></li>
+<li><a href="../capitoli/07-successioni-serie.html"><span class="n">7</span>Successioni e serie numeriche</a></li>
+<li><a href="../capitoli/08-serie-di-potenze.html"><span class="n">8</span>Serie di potenze</a></li>
+<li><a href="../capitoli/09-integrali.html"><span class="n">9</span>Calcolo integrale in una variabile</a></li>
+<li><a href="../capitoli/10-funzioni-razionali.html"><span class="n">10</span>Integrazione delle funzioni razionali</a></li>
+<li><a href="../capitoli/11-integrali-impropri.html"><span class="n">11</span>Integrali impropri</a></li>
+<li><a href="../capitoli/12-integrali-senso-pratico.html"><span class="n">12</span>A cosa servono gli integrali</a></li>
+<li class="off"><span class="n">13</span>Calcolo differenziale in più variabili</li>
+<li class="off"><span class="n">14</span>Equazioni differenziali ordinarie</li></ol></nav>
+<main class="page"><header class="ch-head"><div class="ch-num">Capitolo 2</div><h1>Insiemi numerici e intervalli</h1><p class="ch-sub">ℕ, ℤ, ℚ, ℝ; parentesi tonde e quadre; unione e intersezione</p></header>
+<details class="mini" open><summary>In questo capitolo</summary><ol><li><a href="#gli-insiemi-numerici">1. Gli insiemi numerici</a></li><li><a href="#intervalli-limitati-la-regola-delle-parentesi">2. Intervalli
+limitati: la regola delle parentesi</a></li><li><a href="#intervalli-illimitati-verso-linfinito">3. Intervalli illimitati
+(verso l&#x27;infinito)</a></li><li><a href="#le-tre-scritture-equivalenti">4. Le tre scritture
+equivalenti</a></li><li><a href="#unione-e-intersezione-di-intervalli">5. Unione e intersezione di
+intervalli</a></li><li><a href="#a-cosa-serve">6. A cosa serve</a></li><li><a href="#esempio-svolto-completo">Esempio svolto completo</a></li><li><a href="#errori-tipici-da-evitare">Errori tipici da evitare</a></li></ol></details>
+<article class="testo"><p>Blocco <strong>Fondamenti</strong> del programma di Udine
+(MATH-03/A). Gli intervalli sono il modo standard per scrivere “insiemi
+di numeri” sulla retta reale: servono per i domini delle funzioni, per
+le soluzioni delle disequazioni e per dire dove vale una certa
+condizione. È la prima cosa da fissare.</p><h2 id="gli-insiemi-numerici">1. Gli insiemi numerici</h2>
+<p>I numeri si organizzano in famiglie via via più ampie:</p>
+<ul>
+<li><blockquote>
+<p>ℕ (naturali): 0, 1, 2, 3, … — per contare.</p>
+</blockquote></li>
+<li><blockquote>
+<p>ℤ (interi): …, −2, −1, 0, 1, 2, … — aggiungono i negativi.</p>
+</blockquote></li>
+<li><blockquote>
+<p>ℚ (razionali): tutte le frazioni a/b — aggiungono le parti decimali
+che finiscono o si ripetono.</p>
+</blockquote></li>
+<li><blockquote>
+<p>ℝ (reali): tutti i punti della retta, comprese √2, π, e — è l'insieme
+in cui lavora l'Analisi 1.</p>
+</blockquote></li>
+</ul>
+<p>I numeri reali si immaginano come una <strong>retta
+continua</strong>: ogni punto è un numero, ogni numero un punto. Un
+intervallo è semplicemente un “pezzo” di questa retta.</p>
+<h2 id="intervalli-limitati-la-regola-delle-parentesi">2. Intervalli
+limitati: la regola delle parentesi</h2>
+<p>Un intervallo limitato è il tratto di retta compreso tra due estremi
+a e b. La cosa da capire è <strong>se gli estremi sono inclusi o
+no</strong>, e qui entra la regola delle parentesi:</p>
+<ul>
+<li><blockquote>
+<p>Parentesi TONDA ( ) = estremo ESCLUSO → disuguaglianza stretta (&lt;
+oppure &gt;) → sul grafico pallino VUOTO.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Parentesi QUADRA [ ] = estremo INCLUSO → disuguaglianza larga (≤
+oppure ≥) → sul grafico pallino PIENO.</p>
+</blockquote></li>
+</ul>
+<p><em>Fig. 1 — I quattro intervalli limitati. La tonda esclude
+l'estremo (pallino vuo</em><img src="../img/02-intervalli/Analisi1_Lezione00_Insiemi_e_intervalli_image1.png" alt="" loading="lazy" class="figura" style="width:min(730px,100%)"><em>to), la quadra lo include
+(pallino pieno).</em></p>
+<p><strong>Esempio.</strong> [2, 6) è l'insieme dei numeri x tali che 2
+≤ x &lt; 6: il 2 è compreso, il 6 no.</p>
+
+<h2 id="intervalli-illimitati-verso-linfinito">3. Intervalli illimitati
+(verso l'infinito)</h2>
+<p>Quando l'intervallo non ha un estremo da una parte, si usa il simbolo
+di infinito. Regola d'oro: <strong>verso ±∞ la parentesi è SEMPRE
+tonda</strong>, perché l'infinito non è un numero e non può mai essere
+“incluso”.</p>
+<div class="plate"><img src="../img/02-intervalli/Analisi1_Lezione00_Insiemi_e_intervalli_image3.png" alt="" loading="lazy" class="figura" style="width:min(696px,100%)"></div>
+<p class="caption">Fig. 2 — Intervalli illimitati: una semiretta verso +∞ o −∞, e
+l'intera retta reale ℝ = (−∞, +∞).</p>
+<p><strong>Esempi.</strong> [3, +∞) sono i numeri x ≥ 3; (−∞, 5) sono i
+numeri x &lt; 5; (−∞, +∞) è tutto ℝ.</p>
+
+
+
+
+
+
+
+
+<h2 id="le-tre-scritture-equivalenti">4. Le tre scritture
+equivalenti</h2>
+<p>Lo stesso insieme si può scrivere in tre modi: come intervallo, come
+disuguaglianza, o come insieme. Sapere passare dall'uno all'altro è
+essenziale.</p>
+<div class="tscroll"><table>
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 24%" />
+<col style="width: 17%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Intervallo</strong></th>
+<th><strong>Disuguaglianza</strong></th>
+<th><strong>Insieme</strong></th>
+<th><strong>Estremi</strong></th>
+</tr>
+<tr class="odd">
+<th>(a, b)</th>
+<th>a &lt; x &lt; b</th>
+<th>{ x ∈ ℝ : a &lt; x &lt; b }</th>
+<th>esclusi</th>
+</tr>
+<tr class="header">
+<th>[a, b]</th>
+<th>a ≤ x ≤ b</th>
+<th>{ x ∈ ℝ : a ≤ x ≤ b }</th>
+<th>inclusi</th>
+</tr>
+<tr class="odd">
+<th>[a, b)</th>
+<th>a ≤ x &lt; b</th>
+<th>{ x ∈ ℝ : a ≤ x &lt; b }</th>
+<th>a sì, b no</th>
+</tr>
+<tr class="header">
+<th>(a, b]</th>
+<th>a &lt; x ≤ b</th>
+<th>{ x ∈ ℝ : a &lt; x ≤ b }</th>
+<th>a no, b sì</th>
+</tr>
+<tr class="odd">
+<th>[a, +∞)</th>
+<th>x ≥ a</th>
+<th>{ x ∈ ℝ : x ≥ a }</th>
+<th>a incluso</th>
+</tr>
+<tr class="header">
+<th>(−∞, b)</th>
+<th>x &lt; b</th>
+<th>{ x ∈ ℝ : x &lt; b }</th>
+<th>b escluso</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<p>La scrittura { x ∈ ℝ : … } si legge “l'insieme degli x reali tali che
+…”: i due punti significano “tali che”.</p>
+<h2 id="unione-e-intersezione-di-intervalli">5. Unione e intersezione di
+intervalli</h2>
+<p>Spesso una condizione produce due o più intervalli da combinare:</p>
+<ul>
+<li><blockquote>
+<p>Unione (A ∪ B): tutto ciò che sta in A OPPURE in B (si mettono
+insieme i pezzi).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Intersezione (A ∩ B): solo ciò che sta in A E ANCHE in B (la parte in
+comune).</p>
+</blockquote></li>
+</ul>
+<div class="plate"><img src="../img/02-intervalli/Analisi1_Lezione00_Insiemi_e_intervalli_image2.png" alt="" loading="lazy" class="figura" style="width:min(728px,100%)"></div>
+<p class="caption">Fig. 3 — Con A = [1, 5) e B = (3, 7]: l'unione è [1, 7],
+l'intersezione è (3, 5).</p>
+<p><strong>Attenzione agli estremi.</strong> Nell'intersezione (3, 5):
+il 3 resta escluso (lo era in B) e il 5 resta escluso (lo era in A).
+L'estremo è incluso solo se lo è in entrambi gli intervalli.</p>
+<h2 id="a-cosa-serve">6. A cosa serve</h2>
+<ul>
+<li><blockquote>
+<p>Dominio delle funzioni (Lezione 2): il risultato si scrive quasi
+sempre come intervallo o unione di intervalli. Es.: dominio di 1/(x−2) è
+(−∞, 2) ∪ (2, +∞).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Soluzioni delle disequazioni: la risposta è un intervallo (es.: x²
+&lt; 4 dà −2 &lt; x &lt; 2, cioè (−2, 2)).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Studio di funzione: gli intervalli di crescita/decrescita (Lezione 4)
+si scrivono con questa notazione.</p>
+</blockquote></li>
+</ul>
+<h2 id="esempio-svolto-completo">Esempio svolto completo</h2>
+<p>Scrivere in tutti i modi l'insieme dei numeri maggiori o uguali a −1
+e minori di 4.</p>
+<ul>
+<li><blockquote>
+<p>A parole: da −1 (incluso) fino a 4 (escluso).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Disuguaglianza: −1 ≤ x &lt; 4.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Intervallo: [−1, 4).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Insieme: { x ∈ ℝ : −1 ≤ x &lt; 4 }.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Grafico: pallino pieno in −1, pallino vuoto in 4, segmento in
+mezzo.</p>
+</blockquote></li>
+</ul>
+<h2 id="errori-tipici-da-evitare">Errori tipici da evitare</h2>
+<ul>
+<li><blockquote>
+<p>Scrivere ∞ con la parentesi quadra, es. [3, +∞]: sbagliato,
+l'infinito vuole sempre la tonda → [3, +∞).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Confondere ( con [ : cambia il significato (estremo escluso vs
+incluso).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Nell'intersezione, includere un estremo che era escluso in uno dei
+due intervalli.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Invertire gli estremi: si scrive sempre prima il più piccolo, poi il
+più grande (es. (2, 6), non (6, 2)).</p>
+</blockquote></li>
+</ul>
+
+</article>
+<nav class="pn"><a class="prev" href="01-logica-insiemi.html"><small>Capitolo 1</small>Logica, insiemi e quantificatori</a><a class="next" href="03-numeri-complessi.html"><small>Capitolo 3</small>I numeri complessi</a></nav></main>
+</body>
+</html>

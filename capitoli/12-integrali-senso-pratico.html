@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A cosa servono gli integrali · Analisi 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Instrument+Sans:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<input type="checkbox" id="menu" class="menu-toggle" aria-label="Apri l'indice">
+<header class="bar"><label for="menu" class="menu-btn">Indice</label><span class="bar-title">Analisi Matematica 1 · Uniud</span></header>
+<nav class="toc" aria-label="Capitoli"><div class="toc-head">Analisi Matematica 1</div><ol><li><a href="../index.html">Copertina</a></li>
+<li><a href="../capitoli/01-logica-insiemi.html"><span class="n">1</span>Logica, insiemi e quantificatori</a></li>
+<li><a href="../capitoli/02-intervalli.html"><span class="n">2</span>Insiemi numerici e intervalli</a></li>
+<li><a href="../capitoli/03-numeri-complessi.html"><span class="n">3</span>I numeri complessi</a></li>
+<li><a href="../capitoli/04-funzioni-reali.html"><span class="n">4</span>Funzioni reali di una variabile</a></li>
+<li><a href="../capitoli/05-limiti-continuita.html"><span class="n">5</span>Limiti e continuità</a></li>
+<li><a href="../capitoli/06-derivate.html"><span class="n">6</span>Le derivate</a></li>
+<li><a href="../capitoli/07-successioni-serie.html"><span class="n">7</span>Successioni e serie numeriche</a></li>
+<li><a href="../capitoli/08-serie-di-potenze.html"><span class="n">8</span>Serie di potenze</a></li>
+<li><a href="../capitoli/09-integrali.html"><span class="n">9</span>Calcolo integrale in una variabile</a></li>
+<li><a href="../capitoli/10-funzioni-razionali.html"><span class="n">10</span>Integrazione delle funzioni razionali</a></li>
+<li><a href="../capitoli/11-integrali-impropri.html"><span class="n">11</span>Integrali impropri</a></li>
+<li><a href="../capitoli/12-integrali-senso-pratico.html" aria-current="page"><span class="n">12</span>A cosa servono gli integrali</a></li>
+<li class="off"><span class="n">13</span>Calcolo differenziale in più variabili</li>
+<li class="off"><span class="n">14</span>Equazioni differenziali ordinarie</li></ol></nav>
+<main class="page"><header class="ch-head"><div class="ch-num">Capitolo 12</div><h1>A cosa servono gli integrali</h1><p class="ch-sub">Il senso pratico: circuito RC, condizione iniziale, impropri</p></header>
+<details class="mini" open><summary>In questo capitolo</summary><ol><li><a href="#lidea-di-fondo">1. L&#x27;idea di fondo</a></li><li><a href="#il-circuito-rc-corrente-e-tensione">2. Il circuito RC: corrente
+e tensione</a></li><li><a href="#la-costante-di-integrazione-è-la-condizione-iniziale">3. La
+costante di integrazione è la condizione iniziale</a></li><li><a href="#integrali-impropri-di-tipo-1-e-se-si-lasciasse-andare-per-sempre">4.
+Integrali impropri di Tipo 1: e se si lasciasse andare per sempre?</a></li><li><a href="#integrali-impropri-di-tipo-2-il-picco-stretto">5. Integrali
+impropri di Tipo 2: il picco stretto</a></li><li><a href="#i-fratti-semplici-e-i-poli-dei-circuiti">6. I fratti semplici e
+i poli dei circuiti</a></li><li><a href="#in-sintesi">7. In sintesi</a></li><li><a href="#promemoria-dei-controlli">Promemoria dei controlli</a></li></ol></details>
+<article class="testo"><h2 id="lidea-di-fondo">1. L'idea di fondo</h2>
+<p>Tutto il calcolo integrale risponde a una sola domanda: conosco la
+velocità con cui una grandezza cambia, e voglio sapere quanto ne è stato
+accumulato in totale.</p>
+<p>La funzione <strong>f</strong> è il ritmo con cui qualcosa succede.
+La funzione <strong>F</strong> è il totale accumulato fino a quel
+momento. L'area sotto il grafico di f è proprio quel totale.</p>
+<div class="plate"><img src="../img/12-integrali-senso-pratico/Integrali_senso_pratico_PC_image1.png" alt="" loading="lazy" class="formula" style="width:min(219px,100%)"></div>
+<p>Il teorema fondamentale dice che le due operazioni sono l'una
+l'inversa dell'altra: derivando l'accumulo si ritrova il ritmo.</p>
+<h2 id="il-circuito-rc-corrente-e-tensione">2. Il circuito RC: corrente
+e tensione</h2>
+<p>La relazione che lega corrente e tensione su un condensatore è una
+derivata:</p>
+<div class="plate"><img src="../img/12-integrali-senso-pratico/Integrali_senso_pratico_PC_image9.png" alt="" loading="lazy" class="formula" style="width:min(79px,100%)"></div>
+<p>Ma in laboratorio serve quasi sempre il contrario: si conosce la
+corrente e si vuole sapere che tensione c'è sul condensatore. Girare
+quella relazione significa integrare.</p>
+<div class="plate"><img src="../img/12-integrali-senso-pratico/Integrali_senso_pratico_PC_image11.png" alt="" loading="lazy" class="formula" style="width:min(121px,100%)"></div>
+<p>La carica accumulata fino all'istante t è l'area sotto la curva della
+corrente:</p>
+<div class="plate"><img src="../img/12-integrali-senso-pratico/Integrali_senso_pratico_PC_image5.png" alt="" loading="lazy" class="formula" style="width:min(111px,100%)"></div>
+<div class="plate"><img src="../img/12-integrali-senso-pratico/Integrali_senso_pratico_PC_image10.png" alt="" loading="lazy" class="figura" style="width:min(610px,100%)"></div>
+<p>Esempio della figura: alimentazione 5 V, R = 1 kΩ, C = 1 µF. A
+sinistra la corrente (la f), a destra la tensione sul condensatore (la
+F). Dove la corrente è grande, la tensione sale ripida; dove la corrente
+è quasi nulla, la tensione è quasi ferma. La carica totale accumulata
+vale C·V = 5 µC.</p>
+
+<h2 id="la-costante-di-integrazione-è-la-condizione-iniziale">3. La
+costante di integrazione è la condizione iniziale</h2>
+<p>La primitiva viene sempre con un « + C » indeterminato. In matematica
+sembra un fastidio; in circuito è la cosa più concreta che c'è: è quanto
+era già presente nel condensatore quando si è chiuso l'interruttore.</p>
+<div class="plate"><img src="../img/12-integrali-senso-pratico/Integrali_senso_pratico_PC_image4.png" alt="" loading="lazy" class="formula" style="width:min(166px,100%)"></div>
+<p>Tutte le primitive hanno la stessa derivata: sono curve parallele,
+traslate in verticale. La condizione iniziale ne sceglie una sola.
+Questo è il problema di Cauchy, cioè il problema fisico completo: la
+legge che governa il sistema, più il punto di partenza.</p>
+<div class="plate"><img src="../img/12-integrali-senso-pratico/Integrali_senso_pratico_PC_image7.png" alt="" loading="lazy" class="formula" style="width:min(115px,100%)"></div>
+<p>Quando in laboratorio si dice « il condensatore parte scarico, quindi
+v(0) = 0 », si sta risolvendo esattamente un problema di Cauchy.</p>
+<h2
+id="integrali-impropri-di-tipo-1-e-se-si-lasciasse-andare-per-sempre">4.
+Integrali impropri di Tipo 1: e se si lasciasse andare per sempre?</h2>
+<p>Il transitorio di carica non finisce mai davvero: la corrente cala
+verso zero senza annullarsi, la tensione si avvicina a 5 V senza
+arrivarci.</p>
+<div class="plate"><img src="../img/12-integrali-senso-pratico/Integrali_senso_pratico_PC_image6.png" alt="" loading="lazy" class="formula" style="width:min(205px,100%)"></div>
+<p>Domanda onesta: se si aspetta all'infinito, l'energia dissipata sulla
+resistenza è infinita? No, ed è un numero preciso:</p>
+<div class="plate"><img src="../img/12-integrali-senso-pratico/Integrali_senso_pratico_PC_image3.png" alt="" loading="lazy" class="formula" style="width:min(217px,100%)"></div>
+<p>Intervallo infinito, risultato finito: è un integrale improprio di
+Tipo 1 che converge, e significa una cosa fisica concreta — il
+componente dissipa in tutto una quantità finita di energia, non
+brucia.</p>
+<p>Quando invece l'integrale diverge, la grandezza fisica esplode. Il
+criterio sull'esponente serve proprio a sapere quanto in fretta deve
+smorzarsi la coda perché il totale resti finito: un'esponenziale si
+smorza sempre abbastanza, una coda che va come 1/t no.</p>
+<h2 id="integrali-impropri-di-tipo-2-il-picco-stretto">5. Integrali
+impropri di Tipo 2: il picco stretto</h2>
+<p>Qui l'intervallo è corto, ma la grandezza schizza in un istante:
+pensa alla corrente di picco nei primi microsecondi di una scarica. La
+domanda diventa: la carica totale che passa in quel picco è finita?</p>
+<div class="plate"><img src="../img/12-integrali-senso-pratico/Integrali_senso_pratico_PC_image8.png" alt="" loading="lazy" class="formula" style="width:min(196px,100%)"></div>
+<p>La risposta dipende da quanto è stretto il picco rispetto a quanto è
+alto. Se l'esponente è minore di 1, la carica totale resta finita anche
+se il picco è infinitamente alto. È il motivo per cui in elettronica si
+può ragionare con impulsi idealizzati: l'altezza va all'infinito, ma
+l'area resta un numero.</p>
+<h2 id="i-fratti-semplici-e-i-poli-dei-circuiti">6. I fratti semplici e
+i poli dei circuiti</h2>
+<p>Spezzare una frazione complicata in frazioni elementari:</p>
+<div class="plate"><img src="../img/12-integrali-senso-pratico/Integrali_senso_pratico_PC_image2.png" alt="" loading="lazy" class="formula" style="width:min(187px,100%)"></div>
+<p>è la stessa identica operazione che si fa sulle funzioni di
+trasferimento: si scompone la frazione nei suoi poli, e ogni pezzo
+semplice corrisponde a un modo di risposta del circuito, cioè a una
+costante di tempo. È la base dell'antitrasformata di Laplace, con cui si
+calcola la risposta di un RLC.</p>
+<p><strong>Nota onesta:</strong> questo aggancio è prassi standard
+dell'ingegneria elettronica, non un contenuto verificato sulla dispensa
+del corso. Non serve per l'esame di Analisi 1; serve a capire perché
+quella tecnica esiste.</p>
+<h2 id="in-sintesi">7. In sintesi</h2>
+<p>Lo stesso schema « ritmo → totale » ritorna dappertutto:</p>
+<div class="tscroll"><table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Grandezza f (come cambia)</strong></th>
+<th><strong>Grandezza F (quanto vale)</strong></th>
+<th><strong>Dove la incontri</strong></th>
+</tr>
+<tr class="odd">
+<th>corrente i(t)</th>
+<th>carica q(t)</th>
+<th>condensatore in carica</th>
+</tr>
+<tr class="header">
+<th>potenza p(t)</th>
+<th>energia W(t)</th>
+<th>dissipazione su una resistenza</th>
+</tr>
+<tr class="odd">
+<th>tensione v(t)</th>
+<th>flusso concatenato</th>
+<th>induttore</th>
+</tr>
+<tr class="header">
+<th>velocità</th>
+<th>spazio percorso</th>
+<th>cinematica</th>
+</tr>
+<tr class="odd">
+<th>portata</th>
+<th>volume</th>
+<th>riempimento di un serbatoio</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<p>Quindi non sono manovre a vuoto: si tratta di passare da « come
+cambia » a « quanto vale », e di fissare il risultato con il valore di
+partenza. Le equazioni differenziali, che vengono dopo, sono la versione
+generale di questa stessa idea.</p>
+<h2 id="promemoria-dei-controlli">Promemoria dei controlli</h2>
+<ul>
+<li><blockquote>
+<p>Primitiva trovata: la derivo e devo ritrovare f (andata e
+ritorno).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Funzione integrale con estremo iniziale a: F(a) deve fare 0.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Tipo 1 (intervallo infinito): converge se l'esponente è maggiore di
+1.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Tipo 2 (funzione che esplode a un estremo): converge se l'esponente è
+minore di 1.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Formula algebrica dubbia: provala con un numero e vedi se torna.</p>
+</blockquote></li>
+</ul>
+
+</article>
+<nav class="pn"><a class="prev" href="11-integrali-impropri.html"><small>Capitolo 11</small>Integrali impropri</a><a class="next" href="../index.html"><small>Torna a</small>Copertina</a></nav></main>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Logica, insiemi e quantificatori · Analisi 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Instrument+Sans:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<input type="checkbox" id="menu" class="menu-toggle" aria-label="Apri l'indice">
+<header class="bar"><label for="menu" class="menu-btn">Indice</label><span class="bar-title">Analisi Matematica 1 · Uniud</span></header>
+<nav class="toc" aria-label="Capitoli"><div class="toc-head">Analisi Matematica 1</div><ol><li><a href="../index.html">Copertina</a></li>
+<li><a href="../capitoli/01-logica-insiemi.html" aria-current="page"><span class="n">1</span>Logica, insiemi e quantificatori</a></li>
+<li><a href="../capitoli/02-intervalli.html"><span class="n">2</span>Insiemi numerici e intervalli</a></li>
+<li><a href="../capitoli/03-numeri-complessi.html"><span class="n">3</span>I numeri complessi</a></li>
+<li><a href="../capitoli/04-funzioni-reali.html"><span class="n">4</span>Funzioni reali di una variabile</a></li>
+<li><a href="../capitoli/05-limiti-continuita.html"><span class="n">5</span>Limiti e continuità</a></li>
+<li><a href="../capitoli/06-derivate.html"><span class="n">6</span>Le derivate</a></li>
+<li><a href="../capitoli/07-successioni-serie.html"><span class="n">7</span>Successioni e serie numeriche</a></li>
+<li><a href="../capitoli/08-serie-di-potenze.html"><span class="n">8</span>Serie di potenze</a></li>
+<li><a href="../capitoli/09-integrali.html"><span class="n">9</span>Calcolo integrale in una variabile</a></li>
+<li><a href="../capitoli/10-funzioni-razionali.html"><span class="n">10</span>Integrazione delle funzioni razionali</a></li>
+<li><a href="../capitoli/11-integrali-impropri.html"><span class="n">11</span>Integrali impropri</a></li>
+<li><a href="../capitoli/12-integrali-senso-pratico.html"><span class="n">12</span>A cosa servono gli integrali</a></li>
+<li class="off"><span class="n">13</span>Calcolo differenziale in più variabili</li>
+<li class="off"><span class="n">14</span>Equazioni differenziali ordinarie</li></ol></nav>
+<main class="page"><header class="ch-head"><div class="ch-num">Capitolo 1</div><h1>Logica, insiemi e quantificatori</h1><p class="ch-sub">Connettivi, implicazione, De Morgan, ∀ ed ∃, operazioni sugli insiemi</p></header>
+<details class="mini" open><summary>In questo capitolo</summary><ol><li><a href="#logica-proposizionale">1. Logica proposizionale</a></li><li><a href="#de-morgan-e-negazioni-logica">2. De Morgan e negazioni
+(logica)</a></li><li><a href="#quantificatori-e-il-cuore">3. Quantificatori: ∀ e ∃ (il
+cuore)</a></li><li><a href="#la-ricetta-della-negazione-passo-passo">4. La ricetta della
+negazione (passo passo)</a></li><li><a href="#insiemi">5. Insiemi</a></li><li><a href="#esercizi-svolti">6. Esercizi svolti</a></li><li><a href="#trappole-tipiche-da-evitare">7. Trappole tipiche da evitare</a></li></ol></details>
+<article class="testo"><p>Documento da rileggere in caso di dubbio: raccoglie tutto ciò che
+abbiamo fatto su logica, insiemi e quantificatori, con la teoria, le
+regole pratiche e gli esercizi svolti. Contenuto standard e universale,
+valido per il corso di Udine. Mappa dei simboli:</p><h2 id="logica-proposizionale">1. Logica proposizionale</h2>
+<p><strong>Proposizione</strong>: affermazione con valore univoco Vero
+(V) o Falso (F). "π &gt; 3" è V; "3 è pari" è F.</p>
+<h3 id="connettivi-e-tabella-di-verità">Connettivi e tabella di
+verità</h3>
+<p>Ogni connettivo si definisce elencando tutti i casi (con due
+proposizioni, 2² = 4 righe):</p>
+<div class="tscroll"><table style="width:100%;">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>p</strong></th>
+<th><strong>q</strong></th>
+<th><strong>¬p</strong></th>
+<th><strong>p∧q</strong></th>
+<th><strong>p∨q</strong></th>
+<th><strong>p→q</strong></th>
+<th><strong>p↔︎q</strong></th>
+</tr>
+<tr class="odd">
+<th>V</th>
+<th>V</th>
+<th>F</th>
+<th>V</th>
+<th>V</th>
+<th>V</th>
+<th>V</th>
+</tr>
+<tr class="header">
+<th>V</th>
+<th>F</th>
+<th>F</th>
+<th>F</th>
+<th>V</th>
+<th>F</th>
+<th>F</th>
+</tr>
+<tr class="odd">
+<th>F</th>
+<th>V</th>
+<th>V</th>
+<th>F</th>
+<th>V</th>
+<th>V</th>
+<th>F</th>
+</tr>
+<tr class="header">
+<th>F</th>
+<th>F</th>
+<th>V</th>
+<th>F</th>
+<th>F</th>
+<th>V</th>
+<th>V</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<p><strong>Chiave sull’implicazione p → q</strong>: è falsa solo quando
+p è V e q è F. Da premessa falsa segue qualunque cosa.</p>
+<h3 id="implicazione-le-quattro-varianti">Implicazione: le quattro
+varianti</h3>
+<ul>
+<li><blockquote>
+<p><strong>Diretta:</strong> p → q</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>Inversa:</strong> q → p — non equivalente</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>Contraria:</strong> ¬p → ¬q — non equivalente</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>Contronominale:</strong> ¬q → ¬p — equivalente (base della
+dimostrazione per contrapposizione)</p>
+</blockquote></li>
+</ul>
+<div class="plate"><img src="../img/01-logica-insiemi/Riepilogo_Logica_Insiemi_Quantificatori_PC_image1.png" alt="" loading="lazy" class="formula" style="width:min(357px,100%)"></div>
+<h2 id="de-morgan-e-negazioni-logica">2. De Morgan e negazioni
+(logica)</h2>
+<p>Servono per negare le frasi composte:</p>
+<div class="plate"><img src="../img/01-logica-insiemi/Riepilogo_Logica_Insiemi_Quantificatori_PC_image3.png" alt="" loading="lazy" class="figura" style="width:min(619px,100%)"></div>
+<p>Negazione dell’implicazione (l’"allora" sparisce e diventa una
+"e"):</p>
+<div class="plate"><img src="../img/01-logica-insiemi/Riepilogo_Logica_Insiemi_Quantificatori_PC_image12.png" alt="" loading="lazy" class="formula" style="width:min(280px,100%)"></div>
+<h2 id="quantificatori-e-il-cuore">3. Quantificatori: ∀ e ∃ (il
+cuore)</h2>
+<ul>
+<li><blockquote>
+<p><strong>∀x</strong> = "per ogni x": promessa senza eccezioni, vale su
+tutti.</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>∃x</strong> = "esiste almeno un x": basta un solo
+testimone.</p>
+</blockquote></li>
+</ul>
+<p><strong>Asimmetria fondamentale</strong>: ∀ è fragile (muore con un
+solo controesempio); ∃ è robusto (vive con un solo testimone).</p>
+<div class="tscroll"><table>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 38%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>∀x — per ogni</strong></th>
+<th><strong>∃x — esiste</strong></th>
+</tr>
+<tr class="odd">
+<th><strong>Significato</strong></th>
+<th>vale per TUTTI gli x</th>
+<th>vale per ALMENO UN x</th>
+</tr>
+<tr class="header">
+<th><strong>VERA quando</strong></th>
+<th>tutti soddisfano P</th>
+<th>almeno uno soddisfa P</th>
+</tr>
+<tr class="odd">
+<th><strong>FALSA quando</strong></th>
+<th>c’è almeno un controesempio</th>
+<th>nessuno soddisfa P</th>
+</tr>
+<tr class="header">
+<th><strong>Per provarla VERA</strong></th>
+<th>ragionamento generale (tutti)</th>
+<th>esibisci un testimone</th>
+</tr>
+<tr class="odd">
+<th><strong>Per provarla FALSA</strong></th>
+<th>esibisci un controesempio</th>
+<th>ragionamento generale (nessuno)</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<h3 id="negazione-dei-quantificatori">Negazione dei quantificatori</h3>
+<div class="plate"><img src="../img/01-logica-insiemi/Riepilogo_Logica_Insiemi_Quantificatori_PC_image8.png" alt="" loading="lazy" class="figura" style="width:min(619px,100%)"></div>
+<p>Non è un trucco a memoria: negare "tutti sono P" significa "ne esiste
+uno che non è P" (∀ → ∃); negare "esiste uno P" significa "tutti sono
+non-P" (∃ → ∀).</p>
+<h3 id="quantificatori-annidati-e-definizione-di-limite">Quantificatori
+annidati e definizione di limite</h3>
+<p><strong>L’ordine conta</strong>: ∀ε ∃δ significa "per ogni ε io trovo
+un δ (che può dipendere da ε)". Scambiare ∀ e ∃ cambia il
+significato.</p>
+<div class="plate"><img src="../img/01-logica-insiemi/Riepilogo_Logica_Insiemi_Quantificatori_PC_image4.png" alt="" loading="lazy" class="figura" style="width:min(619px,100%)"></div>
+<p>Per dimostrare che un limite NON esiste si nega tutto in cascata:</p>
+<div class="plate"><img src="../img/01-logica-insiemi/Riepilogo_Logica_Insiemi_Quantificatori_PC_image7.png" alt="" loading="lazy" class="figura" style="width:min(619px,100%)"></div>
+<h2 id="la-ricetta-della-negazione-passo-passo">4. La ricetta della
+negazione (passo passo)</h2>
+<p>Le mosse per negare una frase con quantificatori sono sempre
+queste:</p>
+<ul>
+<li><blockquote>
+<p><strong>Mossa 1 —</strong> ∀ diventa ∃ (e viceversa); il ¬ entra
+dentro la parentesi.</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>Mossa 2 —</strong> ¬(p ⇒ q) = p ∧ ¬q (l’"allora" diventa
+"e"); e ¬(p ∧ q) = ¬p ∨ ¬q (De Morgan: "e" diventa "o").</p>
+</blockquote></li>
+</ul>
+<p><strong>Attenzione ai bordi</strong>: negare una disuguaglianza
+stretta gira il verso E aggiunge l’uguale. Il punto di bordo cambia
+sempre lato:</p>
+<div class="plate"><img src="../img/01-logica-insiemi/Riepilogo_Logica_Insiemi_Quantificatori_PC_image9.png" alt="" loading="lazy" class="figura" style="width:min(615px,100%)"></div>
+<p><strong>Controllo di coerenza</strong>: una frase e la sua negazione
+hanno sempre valori opposti. Se una è vera, l’altra è falsa.</p>
+<h2 id="insiemi">5. Insiemi</h2>
+<p>Un insieme si dà per elencazione {1,2,3} o per proprietà { x ∈ ℝ : x²
+&lt; 2 }. Notevoli: ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ.</p>
+<h3 id="operazioni-fondamentali">Operazioni fondamentali</h3>
+<ul>
+<li><blockquote>
+<p><strong>Unione A ∪ B</strong>: in A oppure in B.</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>Intersezione A ∩ B</strong>: sia in A sia in B.</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>Differenza A ∖ B</strong>: in A ma non in B.</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>Complementare Aᶜ</strong>: nell’universo U ma non in A.</p>
+</blockquote></li>
+</ul>
+<h3 id="de-morgan-per-gli-insiemi">De Morgan per gli insiemi</h3>
+<div class="plate"><img src="../img/01-logica-insiemi/Riepilogo_Logica_Insiemi_Quantificatori_PC_image11.png" alt="" loading="lazy" class="figura" style="width:min(619px,100%)"></div>
+<h3 id="dimostrazione-a-bᶜ-aᶜ-bᶜ">Dimostrazione: (A ∪ B)ᶜ = Aᶜ ∩ Bᶜ</h3>
+<p>Ogni riga è un "se e solo se"; poiché x è arbitrario, i due insiemi
+coincidono. È la De Morgan della logica, tradotta:</p>
+<div class="plate"><img src="../img/01-logica-insiemi/Riepilogo_Logica_Insiemi_Quantificatori_PC_image2.png" alt="" loading="lazy" class="figura" style="width:min(441px,100%)"></div>
+<h3 id="il-ponte-logica-insiemi">Il ponte logica – insiemi</h3>
+<p>Le operazioni sugli insiemi sono i connettivi logici applicati a "x
+appartiene a":</p>
+<div class="tscroll"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Insiemi</strong></th>
+<th><strong>Logica equivalente</strong></th>
+</tr>
+<tr class="odd">
+<th>x ∈ A ∩ B</th>
+<th>x ∈ A ∧ x ∈ B</th>
+</tr>
+<tr class="header">
+<th>x ∈ A ∪ B</th>
+<th>x ∈ A ∨ x ∈ B</th>
+</tr>
+<tr class="odd">
+<th>x ∈ Aᶜ</th>
+<th>¬ (x ∈ A)</th>
+</tr>
+<tr class="header">
+<th>A ⊆ B</th>
+<th>x ∈ A ⇒ x ∈ B</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<h3 id="prodotto-cartesiano-e-insieme-delle-parti">Prodotto cartesiano e
+insieme delle parti</h3>
+<p>Prodotto cartesiano = coppie ordinate (l’ordine conta); insieme delle
+parti = tutti i sottoinsiemi (se |A| = n, ha 2ⁿ elementi).</p>
+<div class="plate"><img src="../img/01-logica-insiemi/Riepilogo_Logica_Insiemi_Quantificatori_PC_image5.png" alt="" loading="lazy" class="figura" style="width:min(619px,100%)"></div>
+<h2 id="esercizi-svolti">6. Esercizi svolti</h2>
+<h3 id="esercizio-1">Esercizio 1</h3>
+<div class="plate"><img src="../img/01-logica-insiemi/Riepilogo_Logica_Insiemi_Quantificatori_PC_image13.png" alt="" loading="lazy" class="formula" style="width:min(402px,100%)"></div>
+<p><strong>Verdetto:</strong> la frase di partenza è VERA (se x &gt; 2
+allora x² &gt; 4, sempre). Quindi la negazione è FALSA.</p>
+<h3 id="esercizio-2">Esercizio 2</h3>
+<div class="plate"><img src="../img/01-logica-insiemi/Riepilogo_Logica_Insiemi_Quantificatori_PC_image14.png" alt="" loading="lazy" class="formula" style="width:min(402px,100%)"></div>
+<p><strong>Verdetto:</strong> la frase di partenza è FALSA.
+Controesempio: x = −3, perché (−3)² = 9 &gt; 4 (premessa vera) ma −3
+&gt; 2 è falso. Attenzione: x = −2 non vale, perché (−2)² = 4 e 4 &gt; 4
+è falso (premessa non soddisfatta).</p>
+<h3 id="esercizio-3">Esercizio 3</h3>
+<div class="plate"><img src="../img/01-logica-insiemi/Riepilogo_Logica_Insiemi_Quantificatori_PC_image10.png" alt="" loading="lazy" class="formula" style="width:min(388px,100%)"></div>
+<p><strong>Verdetto:</strong> la frase di partenza è FALSA.
+Controesempi: qualunque numero in (0, 1], ad esempio 1/5 = 0,2 (è &gt; 0
+ma non &gt; 1), oppure x = 1 (1 &gt; 0 vero, 1 &gt; 1 falso).</p>
+<h3 id="esercizio-4">Esercizio 4</h3>
+<div class="plate"><img src="../img/01-logica-insiemi/Riepilogo_Logica_Insiemi_Quantificatori_PC_image6.png" alt="" loading="lazy" class="formula" style="width:min(406px,100%)"></div>
+<p><strong>Verdetto:</strong> la frase di partenza è VERA. Testimone:
+qualunque numero tra 5 e 10, ad esempio 7 (7 &gt; 5 e 7 &lt; 10). Nota
+sui bordi: la negazione usa ≤ e ≥ perché 5 e 10 appartengono alla
+negazione.</p>
+<h2 id="trappole-tipiche-da-evitare">7. Trappole tipiche da evitare</h2>
+<ul>
+<li><blockquote>
+<p><strong>"Converge perché tende a 0"</strong> (per le serie): è solo
+condizione necessaria, non sufficiente.</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>Inversa ≠ contronominale</strong>: solo ¬q → ¬p è equivalente
+a p → q.</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>Premessa falsa</strong>: un’implicazione con premessa falsa è
+sempre vera.</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>Negare ∀ dà ∃</strong> (e viceversa): per smentire un "per
+ogni" basta un controesempio con il conto fatto.</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>Bordi ≤ vs &lt;</strong>: negando una disuguaglianza stretta,
+gira il verso e aggiungi l’uguale.</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>Ordine dei quantificatori</strong>: scambiare ∀ e ∃ cambia il
+significato dell’enunciato.</p>
+</blockquote></li>
+</ul>
+
+</article>
+<nav class="pn"><a class="prev" href="../index.html"><small>Torna a</small>Copertina</a><a class="next" href="02-intervalli.html"><small>Capitolo 2</small>Insiemi numerici e intervalli</a></nav></main>
+</body>
+</html>

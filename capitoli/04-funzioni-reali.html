@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Funzioni reali di una variabile · Analisi 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Instrument+Sans:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<input type="checkbox" id="menu" class="menu-toggle" aria-label="Apri l'indice">
+<header class="bar"><label for="menu" class="menu-btn">Indice</label><span class="bar-title">Analisi Matematica 1 · Uniud</span></header>
+<nav class="toc" aria-label="Capitoli"><div class="toc-head">Analisi Matematica 1</div><ol><li><a href="../index.html">Copertina</a></li>
+<li><a href="../capitoli/01-logica-insiemi.html"><span class="n">1</span>Logica, insiemi e quantificatori</a></li>
+<li><a href="../capitoli/02-intervalli.html"><span class="n">2</span>Insiemi numerici e intervalli</a></li>
+<li><a href="../capitoli/03-numeri-complessi.html"><span class="n">3</span>I numeri complessi</a></li>
+<li><a href="../capitoli/04-funzioni-reali.html" aria-current="page"><span class="n">4</span>Funzioni reali di una variabile</a></li>
+<li><a href="../capitoli/05-limiti-continuita.html"><span class="n">5</span>Limiti e continuità</a></li>
+<li><a href="../capitoli/06-derivate.html"><span class="n">6</span>Le derivate</a></li>
+<li><a href="../capitoli/07-successioni-serie.html"><span class="n">7</span>Successioni e serie numeriche</a></li>
+<li><a href="../capitoli/08-serie-di-potenze.html"><span class="n">8</span>Serie di potenze</a></li>
+<li><a href="../capitoli/09-integrali.html"><span class="n">9</span>Calcolo integrale in una variabile</a></li>
+<li><a href="../capitoli/10-funzioni-razionali.html"><span class="n">10</span>Integrazione delle funzioni razionali</a></li>
+<li><a href="../capitoli/11-integrali-impropri.html"><span class="n">11</span>Integrali impropri</a></li>
+<li><a href="../capitoli/12-integrali-senso-pratico.html"><span class="n">12</span>A cosa servono gli integrali</a></li>
+<li class="off"><span class="n">13</span>Calcolo differenziale in più variabili</li>
+<li class="off"><span class="n">14</span>Equazioni differenziali ordinarie</li></ol></nav>
+<main class="page"><header class="ch-head"><div class="ch-num">Capitolo 4</div><h1>Funzioni reali di una variabile</h1><p class="ch-sub">Funzioni elementari, dominio, monotonia, simmetrie, inversa e composta</p></header>
+<details class="mini" open><summary>In questo capitolo</summary><ol><li><a href="#che-cosè-una-funzione">1. Che cos&#x27;è una funzione</a></li><li><a href="#le-funzioni-elementari">2. Le funzioni elementari</a></li><li><a href="#il-dominio-dove-la-funzione-vive">3. Il dominio: dove la
+funzione “vive”</a></li><li><a href="#le-proprietà-qualitative">4. Le proprietà qualitative</a></li><li><a href="#funzione-inversa-e-funzione-composta">5. Funzione inversa e
+funzione composta</a></li><li><a href="#a-cosa-serve-in-elettronica">6. A cosa serve in elettronica</a></li><li><a href="#errori-tipici-da-evitare">Errori tipici da evitare</a></li></ol></details>
+<article class="testo"><p>Blocco <strong>Fondamenti</strong> del programma di Udine
+(MATH-03/A). Uno degli obiettivi ufficiali del corso è “saper descrivere
+e rappresentare graficamente le proprietà qualitative delle funzioni di
+una variabile”: è il cuore di questa lezione, e la base su cui
+poggeranno limiti, derivate e integrali.</p><h2 id="che-cosè-una-funzione">1. Che cos'è una funzione</h2>
+<p>Una funzione è una <strong>regola che associa a ogni valore di
+ingresso un solo valore di uscita</strong>. L'immagine mentale è una
+macchina: entra un numero x, esce un numero y = f(x). La condizione “un
+solo valore di uscita” è essenziale: a ogni x corrisponde una e una sola
+y.</p>
+<p>Tre insiemi la descrivono:</p>
+<ul>
+<li><blockquote>
+<p>Dominio: tutti i valori di x ammessi (gli ingressi validi della
+macchina).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Codominio: l'insieme in cui cadono le uscite (di solito i numeri
+reali).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Immagine: i valori di y effettivamente prodotti dalla funzione.</p>
+</blockquote></li>
+</ul>
+<h2 id="le-funzioni-elementari">2. Le funzioni elementari</h2>
+<p>Quasi tutte le funzioni che incontrerai sono combinazioni di pochi
+“mattoni”. Riconoscerli a colpo d'occhio è metà del lavoro.</p>
+<div class="plate"><img src="../img/04-funzioni-reali/Analisi1_Lezione02_Funzioni_reali_image2.png" alt="" loading="lazy" class="figura" style="width:min(469px,100%)"></div>
+<p class="caption">Fig. 1 — I mattoni di base: retta, parabola, radice,
+esponenziale, logaritmo, seno.</p>
+<ul>
+<li><blockquote>
+<p>Retta y = mx + q: crescita costante; m è la pendenza (in
+elettrotecnica, la legge di Ohm).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Parabola y = x²: cresce sempre più in fretta; è pari
+(simmetrica).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Radice y = √x: definita solo per x ≥ 0; cresce sempre più piano.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Esponenziale y = eˣ: crescita rapidissima; modella carica/scarica e
+crescita.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Logaritmo y = ln x: definito solo per x &gt; 0; è l'inverso
+dell'esponenziale (decibel, scale di frequenza).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Seno y = sin x: oscilla tra −1 e 1; è la forma d'onda della corrente
+alternata.</p>
+</blockquote></li>
+</ul>
+
+
+<h2 id="il-dominio-dove-la-funzione-vive">3. Il dominio: dove la
+funzione “vive”</h2>
+<p>Trovare il dominio significa scartare i valori di x che rompono la
+formula. Le tre regole più frequenti:</p>
+<ul>
+<li><blockquote>
+<p>Frazioni: il denominatore non può essere zero.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Radici di indice pari: ciò che sta sotto radice deve essere ≥ 0.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Logaritmi: l'argomento deve essere &gt; 0 (strettamente
+positivo).</p>
+</blockquote></li>
+</ul>
+<div class="plate"><img src="../img/04-funzioni-reali/Analisi1_Lezione02_Funzioni_reali_image5.png" alt="" loading="lazy" class="figura" style="width:min(469px,100%)"></div>
+<p class="caption">Fig. 2 — A sinistra √(x−1) esiste solo per x ≥ 1; a destra
+1/(x−2) esiste per ogni x tranne x = 2.</p>
+<p><strong>Esempio svolto.</strong> Per f(x) = √(x − 1) serve x − 1 ≥ 0,
+cioè <strong>x ≥ 1</strong>. Per f(x) = 1/(x − 2) serve x − 2 ≠ 0, cioè
+<strong>x ≠ 2</strong> (in quel punto il grafico ha un asintoto
+verticale).</p>
+<h2 id="le-proprietà-qualitative">4. Le proprietà qualitative</h2>
+<p>Sono le caratteristiche che permettono di “leggere” una funzione
+senza calcolarne ogni punto — esattamente ciò che chiede il
+programma.</p>
+<h3 id="monotonìa-cresce-o-decresce">Monotonìa: cresce o decresce?</h3>
+<p>Una funzione è <strong>crescente</strong> su un intervallo se,
+spostandosi verso destra, il valore sale; <strong>decrescente</strong>
+se scende. Molte funzioni alternano tratti crescenti e decrescenti,
+separati da punti di <strong>massimo</strong> e
+<strong>minimo</strong>.</p>
+<div class="plate"><img src="../img/04-funzioni-reali/Analisi1_Lezione02_Funzioni_reali_image3.png" alt="" loading="lazy" class="figura" style="width:min(400px,100%)"></div>
+<p class="caption">Fig. 3 — y = x³ − 3x: cresce fino al massimo, poi decresce fino
+al minimo, poi cresce di nuovo.</p>
+
+
+
+
+<h3 id="simmetrie-funzioni-pari-e-dispari">Simmetrie: funzioni pari e
+dispari</h3>
+<p>Una funzione è <strong>pari</strong> se f(−x) = f(x): il grafico è
+simmetrico rispetto all'asse y (come la parabola). È
+<strong>dispari</strong> se f(−x) = −f(x): il grafico è simmetrico
+rispetto all'origine (come x³ o il seno). Riconoscere la simmetria
+dimezza il lavoro di studio.</p>
+<div class="plate"><img src="../img/04-funzioni-reali/Analisi1_Lezione02_Funzioni_reali_image1.png" alt="" loading="lazy" class="figura" style="width:min(469px,100%)"></div>
+<p class="caption">Fig. 4 — A sinistra una funzione pari (simmetrica rispetto
+all'asse y); a destra una dispari (simmetrica rispetto
+all'origine).</p>
+<h3 id="funzioni-limitate">Funzioni limitate</h3>
+<p>Una funzione è <strong>limitata</strong> se i suoi valori restano
+dentro una fascia (come il seno, sempre tra −1 e 1); è illimitata se
+possono crescere senza confine (come la parabola o l'esponenziale).</p>
+<h2 id="funzione-inversa-e-funzione-composta">5. Funzione inversa e
+funzione composta</h2>
+<h3 id="funzione-inversa">Funzione inversa</h3>
+<p>Se una funzione associa ingressi e uscite in modo che ognuna sia
+distinta (è <strong>biiettiva</strong>), si può “tornare indietro”: la
+funzione inversa f⁻¹ recupera l'ingresso a partire dall'uscita.
+Graficamente, f e f⁻¹ sono l'una lo specchio dell'altra rispetto alla
+retta y = x.</p>
+<div class="plate"><img src="../img/04-funzioni-reali/Analisi1_Lezione02_Funzioni_reali_image4.png" alt="" loading="lazy" class="figura" style="width:min(340px,100%)"></div>
+<p class="caption">Fig. 5 — L'esponenziale e il logaritmo sono funzioni inverse: si
+riflettono sulla retta y = x.</p>
+<p><strong>Esempio.</strong> y = eˣ ha per inversa y = ln x. In
+elettronica questo è il legame tra grandezze lineari e decibel.</p>
+<h3 id="funzione-composta">Funzione composta</h3>
+<p>Comporre significa mettere due macchine in fila: l'uscita della prima
+diventa l'ingresso della seconda. Si scrive g(f(x)): prima si applica f,
+poi g.</p>
+<p><strong>Esempio svolto.</strong> Se f(x) = x + 1 e g(x) = x², allora
+g(f(x)) = (x + 1)². Attenzione all'ordine: f(g(x)) = x² + 1 è un'altra
+funzione.</p>
+<h2 id="a-cosa-serve-in-elettronica">6. A cosa serve in elettronica</h2>
+<ul>
+<li><blockquote>
+<p>Un segnale è una funzione del tempo: v(t), i(t). Studiarne dominio,
+simmetrie e monotonìa significa capire il segnale.</p>
+</blockquote></li>
+<li><blockquote>
+<p>La scomposizione di un segnale in parte pari e parte dispari è la
+base dell'analisi di Fourier (Teoria dei segnali).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Le coppie inverse esponenziale/logaritmo governano i decibel e le
+scale logaritmiche dei diagrammi di Bode.</p>
+</blockquote></li>
+</ul>
+<h2 id="errori-tipici-da-evitare">Errori tipici da evitare</h2>
+<ul>
+<li><blockquote>
+<p>Dimenticare le condizioni di esistenza (denominatore ≠ 0, radice ≥ 0,
+logaritmo &gt; 0) quando si cerca il dominio.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Confondere “pari” con “simmetrica rispetto all'origine”: pari = asse
+y, dispari = origine.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Nella composizione, invertire l'ordine: g(f(x)) e f(g(x)) sono in
+generale diverse.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Credere che ogni funzione abbia un'inversa: serve che sia biiettiva
+(a volte solo dopo aver ristretto il dominio).</p>
+</blockquote></li>
+</ul>
+
+</article>
+<nav class="pn"><a class="prev" href="03-numeri-complessi.html"><small>Capitolo 3</small>I numeri complessi</a><a class="next" href="05-limiti-continuita.html"><small>Capitolo 5</small>Limiti e continuità</a></nav></main>
+</body>
+</html>

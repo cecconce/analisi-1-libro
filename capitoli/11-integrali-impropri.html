@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Integrali impropri · Analisi 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Instrument+Sans:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<input type="checkbox" id="menu" class="menu-toggle" aria-label="Apri l'indice">
+<header class="bar"><label for="menu" class="menu-btn">Indice</label><span class="bar-title">Analisi Matematica 1 · Uniud</span></header>
+<nav class="toc" aria-label="Capitoli"><div class="toc-head">Analisi Matematica 1</div><ol><li><a href="../index.html">Copertina</a></li>
+<li><a href="../capitoli/01-logica-insiemi.html"><span class="n">1</span>Logica, insiemi e quantificatori</a></li>
+<li><a href="../capitoli/02-intervalli.html"><span class="n">2</span>Insiemi numerici e intervalli</a></li>
+<li><a href="../capitoli/03-numeri-complessi.html"><span class="n">3</span>I numeri complessi</a></li>
+<li><a href="../capitoli/04-funzioni-reali.html"><span class="n">4</span>Funzioni reali di una variabile</a></li>
+<li><a href="../capitoli/05-limiti-continuita.html"><span class="n">5</span>Limiti e continuità</a></li>
+<li><a href="../capitoli/06-derivate.html"><span class="n">6</span>Le derivate</a></li>
+<li><a href="../capitoli/07-successioni-serie.html"><span class="n">7</span>Successioni e serie numeriche</a></li>
+<li><a href="../capitoli/08-serie-di-potenze.html"><span class="n">8</span>Serie di potenze</a></li>
+<li><a href="../capitoli/09-integrali.html"><span class="n">9</span>Calcolo integrale in una variabile</a></li>
+<li><a href="../capitoli/10-funzioni-razionali.html"><span class="n">10</span>Integrazione delle funzioni razionali</a></li>
+<li><a href="../capitoli/11-integrali-impropri.html" aria-current="page"><span class="n">11</span>Integrali impropri</a></li>
+<li><a href="../capitoli/12-integrali-senso-pratico.html"><span class="n">12</span>A cosa servono gli integrali</a></li>
+<li class="off"><span class="n">13</span>Calcolo differenziale in più variabili</li>
+<li class="off"><span class="n">14</span>Equazioni differenziali ordinarie</li></ol></nav>
+<main class="page"><header class="ch-head"><div class="ch-num">Capitolo 11</div><h1>Integrali impropri</h1><p class="ch-sub">Tipo 1 e Tipo 2, criterio p e la soglia α = 1</p></header>
+<details class="mini" open><summary>In questo capitolo</summary><ol><li><a href="#che-cosè-un-integrale-improprio">Che cos’è un integrale
+improprio</a></li><li><a href="#tipo-1-intervallo-illimitato-estremo">Tipo 1 — intervallo
+illimitato (estremo = ∞)</a></li><li><a href="#tipo-2-funzione-illimitata-a-un-estremo">Tipo 2 — funzione
+illimitata a un estremo</a></li><li><a href="#la-soglia-α-1-tipo-1-contro-tipo-2">La soglia α = 1: Tipo 1
+contro Tipo 2</a></li><li><a href="#errori-da-non-fare-checklist">Errori da non fare
+(checklist)</a></li></ol></details>
+<article class="testo"><h2 id="che-cosè-un-integrale-improprio">Che cos’è un integrale
+improprio</h2>
+<p>Un integrale è "improprio" quando non possiamo semplicemente
+sostituire i due estremi, perché uno di essi è "cattivo". Un estremo è
+cattivo in due casi: è infinito (l’intervallo non finisce mai) oppure è
+un punto finito in cui la funzione esplode (→ ±∞) o non è definita.</p>
+<p>In entrambi i casi il metodo è lo stesso: si sostituisce l’estremo
+cattivo con una lettera t, si calcola un integrale normale e poi si fa
+il limite. Se il limite dà un numero finito → CONVERGE; se cresce senza
+limite → DIVERGE. Ricorda: "tende a 0" è solo condizione necessaria, non
+sufficiente.</p>
+<h2 id="tipo-1-intervallo-illimitato-estremo">Tipo 1 — intervallo
+illimitato (estremo = ∞)</h2>
+<h3 id="caratteristiche">Caratteristiche</h3>
+<ul>
+<li><blockquote>
+<p>L’intervallo va fino a +∞ (o parte da −∞): la "coda" non finisce
+mai.</p>
+</blockquote></li>
+<li><blockquote>
+<p>La funzione, di solito, è regolare; il problema è solo la lunghezza
+infinita.</p>
+</blockquote></li>
+<li><blockquote>
+<p>La t sostituisce l’∞ e si fa il limite per t → +∞.</p>
+</blockquote></li>
+</ul>
+<h3 id="metodo">Metodo</h3>
+<div class="plate"><img src="../img/11-integrali-impropri/Integrali_impropri_PC_image3.png" alt="" loading="lazy" class="formula" style="width:min(318px,100%)"></div>
+<h3 id="criterio-p-la-soglia-è-α-1">Criterio p (la soglia è α = 1)</h3>
+<div class="plate"><img src="../img/11-integrali-impropri/Integrali_impropri_PC_image10.png" alt="" loading="lazy" class="formula" style="width:min(353px,100%)"></div>
+<p>Idea: hai paura della coda infinita, quindi ti serve un esponente
+GRANDE che schiacci in fretta la funzione. Converge se α &gt; 1.</p>
+<h3 id="esempi">Esempi</h3>
+<div class="tscroll"><table>
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 12%" />
+<col style="width: 28%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Integrale</strong></th>
+<th><strong>α</strong></th>
+<th><strong>Esito</strong></th>
+<th><strong>Valore</strong></th>
+</tr>
+<tr class="odd">
+<th><img src="../img/11-integrali-impropri/Integrali_impropri_PC_image18.png" alt="" loading="lazy" class="formula" style="width:min(101px,100%)"></th>
+<th>2</th>
+<th>converge</th>
+<th>1</th>
+</tr>
+<tr class="header">
+<th><img src="../img/11-integrali-impropri/Integrali_impropri_PC_image5.png" alt="" loading="lazy" class="formula" style="width:min(101px,100%)"></th>
+<th>3/2</th>
+<th>converge</th>
+<th>2</th>
+</tr>
+<tr class="odd">
+<th><img src="../img/11-integrali-impropri/Integrali_impropri_PC_image4.png" alt="" loading="lazy" class="formula" style="width:min(97px,100%)"></th>
+<th>1</th>
+<th>diverge</th>
+<th>+∞</th>
+</tr>
+<tr class="header">
+<th><img src="../img/11-integrali-impropri/Integrali_impropri_PC_image17.png" alt="" loading="lazy" class="formula" style="width:min(108px,100%)"></th>
+<th>1/2</th>
+<th>diverge</th>
+<th>+∞</th>
+</tr>
+<tr class="odd">
+<th><img src="../img/11-integrali-impropri/Integrali_impropri_PC_image14.png" alt="" loading="lazy" class="formula" style="width:min(115px,100%)"></th>
+<th>—</th>
+<th>converge</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<h2 id="tipo-2-funzione-illimitata-a-un-estremo">Tipo 2 — funzione
+illimitata a un estremo</h2>
+<h3 id="caratteristiche-1">Caratteristiche</h3>
+<ul>
+<li><blockquote>
+<p>L’intervallo è finito, ma in un estremo la funzione esplode (→
+±∞).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Prima cosa: cerchia gli estremi e trova DOVE il denominatore si
+annulla / la funzione non è definita.</p>
+</blockquote></li>
+<li><blockquote>
+<p>La t va all’estremo cattivo, con la freccia "verso l’interno": t → c⁺
+se è in basso, t → c⁻ se è in alto.</p>
+</blockquote></li>
+</ul>
+<h3 id="metodo-estremo-cattivo-in-basso-oppure-in-alto">Metodo (estremo
+cattivo in basso, oppure in alto)</h3>
+<div class="plate"><img src="../img/11-integrali-impropri/Integrali_impropri_PC_image12.png" alt="" loading="lazy" class="formula" style="width:min(393px,100%)"></div>
+<div class="plate"><img src="../img/11-integrali-impropri/Integrali_impropri_PC_image7.png" alt="" loading="lazy" class="formula" style="width:min(385px,100%)"></div>
+<h3 id="criterio-p-rovesciato-la-soglia-è-sempre-α-1">Criterio p
+ROVESCIATO (la soglia è sempre α = 1)</h3>
+<div class="plate"><img src="../img/11-integrali-impropri/Integrali_impropri_PC_image13.png" alt="" loading="lazy" class="formula" style="width:min(435px,100%)"></div>
+<p>Idea: hai paura dell’esplosione vicino al punto cattivo, quindi ti
+serve un esponente PICCOLO. Converge se α &lt; 1. È il contrario del
+Tipo 1: attenzione a non scambiarli.</p>
+<h3 id="esempi-svolti-gli-esercizi-di-oggi">Esempi svolti (gli esercizi
+di oggi)</h3>
+<div class="tscroll"><table>
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 13%" />
+<col style="width: 26%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Integrale</strong></th>
+<th><strong>α</strong></th>
+<th><strong>Esito</strong></th>
+<th><strong>Valore</strong></th>
+</tr>
+<tr class="odd">
+<th><img src="../img/11-integrali-impropri/Integrali_impropri_PC_image16.png" alt="" loading="lazy" class="formula" style="width:min(106px,100%)"></th>
+<th>1/2</th>
+<th>converge</th>
+<th>2</th>
+</tr>
+<tr class="header">
+<th><img src="../img/11-integrali-impropri/Integrali_impropri_PC_image20.png" alt="" loading="lazy" class="formula" style="width:min(136px,100%)"></th>
+<th>1/2</th>
+<th>converge</th>
+<th>2</th>
+</tr>
+<tr class="odd">
+<th><img src="../img/11-integrali-impropri/Integrali_impropri_PC_image2.png" alt="" loading="lazy" class="formula" style="width:min(91px,100%)"></th>
+<th>1</th>
+<th>diverge</th>
+<th>+∞</th>
+</tr>
+<tr class="header">
+<th><img src="../img/11-integrali-impropri/Integrali_impropri_PC_image19.png" alt="" loading="lazy" class="formula" style="width:min(99px,100%)"></th>
+<th>2</th>
+<th>diverge</th>
+<th>+∞</th>
+</tr>
+<tr class="odd">
+<th><img src="../img/11-integrali-impropri/Integrali_impropri_PC_image8.png" alt="" loading="lazy" class="formula" style="width:min(136px,100%)"></th>
+<th>1/2</th>
+<th>converge</th>
+<th>2</th>
+</tr>
+<tr class="header">
+<th><img src="../img/11-integrali-impropri/Integrali_impropri_PC_image6.png" alt="" loading="lazy" class="formula" style="width:min(106px,100%)"></th>
+<th>1/3</th>
+<th>converge</th>
+<th>3/2</th>
+</tr>
+<tr class="odd">
+<th><img src="../img/11-integrali-impropri/Integrali_impropri_PC_image9.png" alt="" loading="lazy" class="formula" style="width:min(109px,100%)"></th>
+<th>3/2</th>
+<th>diverge</th>
+<th>+∞</th>
+</tr>
+<tr class="header">
+<th><img src="../img/11-integrali-impropri/Integrali_impropri_PC_image15.png" alt="" loading="lazy" class="formula" style="width:min(115px,100%)"></th>
+<th>2/3</th>
+<th>converge</th>
+<th>3</th>
+</tr>
+<tr class="odd">
+<th><img src="../img/11-integrali-impropri/Integrali_impropri_PC_image1.png" alt="" loading="lazy" class="formula" style="width:min(106px,100%)"></th>
+<th>1/4</th>
+<th>converge</th>
+<th>4/3</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<p>Nota: gli Es. 22 e 25 mostrano che l’estremo cattivo non è sempre lo
+0 (può essere spostato, come x = 2, o in alto, come x = 1). L’Es. 23 è
+il caso critico α = 1 (primitiva logaritmo): diverge.</p>
+
+
+
+
+<h2 id="la-soglia-α-1-tipo-1-contro-tipo-2">La soglia α = 1: Tipo 1
+contro Tipo 2</h2>
+<p>La stessa soglia α = 1 funziona AL CONTRARIO nei due tipi. È lo
+scambio più facile da fare all’esame, quindi tienilo a mente con questa
+immagine:</p>
+<div class="plate"><img src="../img/11-integrali-impropri/Integrali_impropri_PC_image11.png" alt="" loading="lazy" class="figura" style="width:min(559px,100%)"></div>
+<ul>
+<li><blockquote>
+<p>Tipo 1 (coda a +∞): converge se α &gt; 1 — "serve α grande".</p>
+</blockquote></li>
+<li><blockquote>
+<p>Tipo 2 (esplosione a un estremo): converge se α &lt; 1 — "serve α
+piccolo".</p>
+</blockquote></li>
+</ul>
+<h2 id="errori-da-non-fare-checklist">Errori da non fare
+(checklist)</h2>
+<ul>
+<li><blockquote>
+<p>Doppia negazione: −(−2) = +2. Rallenta sempre sui segni, soprattutto
+nell’ultimo passaggio.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Valuta la PRIMITIVA agli estremi, non la funzione di partenza.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Scrivi due numeri separati: prima F(b), poi F(a), e sottrai solo alla
+fine (così non "perdi" un estremo).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Criterio p: soglia α = 1, non α = 0. E ricordati Tipo 1 (α &gt; 1) vs
+Tipo 2 (α &lt; 1).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Diverge (→ +∞) non è la stessa cosa di indeterminato (oscilla).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Se la funzione è sempre positiva e ti esce un’area negativa → hai
+saltato un segno (regola-spia).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Negli integrali indefiniti, verifica sempre derivando il
+risultato.</p>
+</blockquote></li>
+</ul>
+
+</article>
+<nav class="pn"><a class="prev" href="10-funzioni-razionali.html"><small>Capitolo 10</small>Integrazione delle funzioni razionali</a><a class="next" href="12-integrali-senso-pratico.html"><small>Capitolo 12</small>A cosa servono gli integrali</a></nav></main>
+</body>
+</html>

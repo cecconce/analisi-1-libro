@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Limiti e continuità · Analisi 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Instrument+Sans:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<input type="checkbox" id="menu" class="menu-toggle" aria-label="Apri l'indice">
+<header class="bar"><label for="menu" class="menu-btn">Indice</label><span class="bar-title">Analisi Matematica 1 · Uniud</span></header>
+<nav class="toc" aria-label="Capitoli"><div class="toc-head">Analisi Matematica 1</div><ol><li><a href="../index.html">Copertina</a></li>
+<li><a href="../capitoli/01-logica-insiemi.html"><span class="n">1</span>Logica, insiemi e quantificatori</a></li>
+<li><a href="../capitoli/02-intervalli.html"><span class="n">2</span>Insiemi numerici e intervalli</a></li>
+<li><a href="../capitoli/03-numeri-complessi.html"><span class="n">3</span>I numeri complessi</a></li>
+<li><a href="../capitoli/04-funzioni-reali.html"><span class="n">4</span>Funzioni reali di una variabile</a></li>
+<li><a href="../capitoli/05-limiti-continuita.html" aria-current="page"><span class="n">5</span>Limiti e continuità</a></li>
+<li><a href="../capitoli/06-derivate.html"><span class="n">6</span>Le derivate</a></li>
+<li><a href="../capitoli/07-successioni-serie.html"><span class="n">7</span>Successioni e serie numeriche</a></li>
+<li><a href="../capitoli/08-serie-di-potenze.html"><span class="n">8</span>Serie di potenze</a></li>
+<li><a href="../capitoli/09-integrali.html"><span class="n">9</span>Calcolo integrale in una variabile</a></li>
+<li><a href="../capitoli/10-funzioni-razionali.html"><span class="n">10</span>Integrazione delle funzioni razionali</a></li>
+<li><a href="../capitoli/11-integrali-impropri.html"><span class="n">11</span>Integrali impropri</a></li>
+<li><a href="../capitoli/12-integrali-senso-pratico.html"><span class="n">12</span>A cosa servono gli integrali</a></li>
+<li class="off"><span class="n">13</span>Calcolo differenziale in più variabili</li>
+<li class="off"><span class="n">14</span>Equazioni differenziali ordinarie</li></ol></nav>
+<main class="page"><header class="ch-head"><div class="ch-num">Capitolo 5</div><h1>Limiti e continuità</h1><p class="ch-sub">Limiti destro e sinistro, all&#x27;infinito, forme indeterminate, continuità</p></header>
+<details class="mini" open><summary>In questo capitolo</summary><ol><li><a href="#lidea-di-limite">1. L&#x27;idea di limite</a></li><li><a href="#limiti-destro-e-sinistro">2. Limiti destro e sinistro</a></li><li><a href="#limiti-allinfinito-e-limiti-infiniti">3. Limiti all&#x27;infinito e
+limiti infiniti</a></li><li><a href="#un-limite-notevole-da-ricordare">4. Un limite notevole da
+ricordare</a></li><li><a href="#le-forme-indeterminate">5. Le forme indeterminate</a></li><li><a href="#la-continuità">6. La continuità</a></li><li><a href="#a-cosa-serve-in-elettronica">7. A cosa serve in elettronica</a></li><li><a href="#errori-tipici-da-evitare">Errori tipici da evitare</a></li></ol></details>
+<article class="testo"><p>Primo argomento del blocco <strong>calcolo differenziale in una
+variabile</strong> del programma di Udine (MATH-03/A). Il limite è lo
+strumento con cui, più avanti, si definiranno le derivate: è quindi il
+vero ingresso al cuore dell'analisi.</p><h2 id="lidea-di-limite">1. L'idea di limite</h2>
+<p>Il limite risponde a una sola domanda: <strong>verso quale valore si
+avvicina la funzione quando la x si avvicina a un certo punto?</strong>
+La cosa cruciale, quasi controintuitiva, è che <strong>non conta il
+valore nel punto</strong>, ma il comportamento avvicinandosi. È come
+guardare dove è diretta un'auto: non importa dov'è adesso, importa dove
+sta andando.</p>
+<div class="plate"><img src="../img/05-limiti-continuita/Analisi1_Lezione03_Limiti_continuita_image2.png" alt="" loading="lazy" class="figura" style="width:min(430px,100%)"></div>
+<p class="caption">Fig. 1 — Avvicinandosi a x = 1 da destra e da sinistra, la
+funzione punta a L = 2, anche se in x = 1 il valore manca (il pallino è
+vuoto).</p>
+<p>Si scrive:</p>
+<p><strong>lim (x→a) f(x) = L</strong></p>
+<p>e si legge “il limite, per x che tende ad a, di f(x), è L”.</p>
+<h2 id="limiti-destro-e-sinistro">2. Limiti destro e sinistro</h2>
+<p>Ci si può avvicinare al punto da due parti: da
+<strong>sinistra</strong> (valori più piccoli) e da
+<strong>destra</strong> (valori più grandi). Il limite “vero” esiste
+<strong>solo se i due limiti laterali coincidono</strong>. Se sono
+diversi, la funzione fa un salto e il limite non esiste.</p>
+<div class="plate"><img src="../img/05-limiti-continuita/Analisi1_Lezione03_Limiti_continuita_image5.png" alt="" loading="lazy" class="figura" style="width:min(430px,100%)"></div>
+<p class="caption">Fig. 2 — Da sinistra la funzione tende a 2, da destra a 0,5: i
+due valori sono diversi, quindi il limite in quel punto non
+esiste.</p>
+<h2 id="limiti-allinfinito-e-limiti-infiniti">3. Limiti all'infinito e
+limiti infiniti</h2>
+<p>Due situazioni diverse, spesso confuse:</p>
+<ul>
+<li><blockquote>
+<p>Limite ALL'infinito (x → ∞): dove va la funzione quando x cresce
+senza limite. Se si stabilizza su un valore, quello è un asintoto
+orizzontale — in elettronica, il regime permanente.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Limite INFINITO (f → ∞): la funzione stessa esplode avvicinandosi a
+un punto. Quel punto è un asintoto verticale.</p>
+</blockquote></li>
+</ul>
+<div class="plate"><img src="../img/05-limiti-continuita/Analisi1_Lezione03_Limiti_continuita_image4.png" alt="" loading="lazy" class="figura" style="width:min(469px,100%)"></div>
+<p class="caption">Fig. 3 — A sinistra: per x→∞ la funzione tende a 2 (asintoto
+orizzontale). A destra: avvicinandosi a x=2 la funzione tende a +∞
+(asintoto verticale).</p>
+<h2 id="un-limite-notevole-da-ricordare">4. Un limite notevole da
+ricordare</h2>
+<p>Alcuni limiti compaiono di continuo e conviene saperli a memoria. Il
+più famoso riguarda il rapporto tra il seno e il suo angolo:</p>
+<p><strong>lim (x→0) sin(x) / x = 1</strong></p>
+<p>In x = 0 il rapporto darebbe 0/0 (privo di senso diretto), eppure
+avvicinandosi a zero la funzione punta chiaramente a 1. È l'esempio
+perfetto di limite “col buco”.</p>
+<div class="plate"><img src="../img/05-limiti-continuita/Analisi1_Lezione03_Limiti_continuita_image3.png" alt="" loading="lazy" class="figura" style="width:min(430px,100%)"></div>
+<p class="caption">Fig. 4 — sin(x)/x non è definito in x = 0, ma il limite vale
+1.</p>
+<p>Altri due utili: <strong>(1 + 1/x)ˣ → e</strong> per x→∞ (definisce
+il numero di Nepero), e <strong>(eˣ − 1)/x → 1</strong> per x→0.</p>
+<h2 id="le-forme-indeterminate">5. Le forme indeterminate</h2>
+<p>A volte sostituendo il valore si ottengono espressioni prive di
+significato immediato, dette <strong>forme indeterminate</strong>: le
+più comuni sono 0/0, ∞/∞, ∞ − ∞, 0·∞. Non vogliono dire “non esiste”:
+vogliono dire “serve lavorare di più” (semplificando, razionalizzando, o
+con strumenti come i limiti notevoli e — più avanti — la regola di de
+l'Hôpital).</p>
+<p><strong>Esempio svolto.</strong> lim(x→1) (x² − 1)/(x − 1) sembra
+0/0. Ma x² − 1 = (x − 1)(x + 1), quindi la frazione si semplifica in x +
+1, e il limite vale <strong>2</strong> (è proprio la Fig. 1).</p>
+<h2 id="la-continuità">6. La continuità</h2>
+<p>Una funzione è <strong>continua</strong> in un punto se la puoi
+disegnare <strong>senza staccare la penna dal foglio</strong>. In
+termini precisi: il valore della funzione nel punto coincide con il suo
+limite, cioè f(a) = lim(x→a) f(x).</p>
+<div class="plate"><img src="../img/05-limiti-continuita/Analisi1_Lezione03_Limiti_continuita_image1.png" alt="" loading="lazy" class="figura" style="width:min(480px,100%)"></div>
+<p class="caption">Fig. 5 — A sinistra una funzione continua; al centro una
+discontinuità a salto; a destra una discontinuità eliminabile (basta
+“riempire il buco”).</p>
+<p>Quasi tutte le grandezze fisiche di un circuito sono funzioni
+continue del tempo. In particolare, <strong>la tensione ai capi di un
+condensatore non può cambiare istantaneamente</strong>: è continua.
+Questa proprietà è la chiave per capire i transitori (Lezioni
+future).</p>
+<h2 id="a-cosa-serve-in-elettronica">7. A cosa serve in elettronica</h2>
+<ul>
+<li><blockquote>
+<p>Regime permanente: il valore finale di un transitorio è un limite per
+t → ∞.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Comportamento agli estremi: un condensatore a frequenza → 0 è un
+circuito aperto, a frequenza → ∞ un corto circuito. Sono limiti
+dell'impedenza.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Continuità: tensione sul condensatore e corrente nell'induttore non
+fanno salti, e questo vincola l'evoluzione dei circuiti.</p>
+</blockquote></li>
+</ul>
+<h2 id="errori-tipici-da-evitare">Errori tipici da evitare</h2>
+<ul>
+<li><blockquote>
+<p>Confondere il valore della funzione nel punto con il limite: sono
+cose diverse (Fig. 1).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Dire che un limite esiste senza controllare che i due limiti laterali
+coincidano.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Trattare 0/0 o ∞/∞ come se fossero un numero: sono forme
+indeterminate, vanno risolte.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Scambiare limite all'infinito (x→∞) con limite infinito (f→∞): sono
+due cose diverse.</p>
+</blockquote></li>
+</ul>
+
+</article>
+<nav class="pn"><a class="prev" href="04-funzioni-reali.html"><small>Capitolo 4</small>Funzioni reali di una variabile</a><a class="next" href="06-derivate.html"><small>Capitolo 6</small>Le derivate</a></nav></main>
+</body>
+</html>

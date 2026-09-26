@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Integrazione delle funzioni razionali · Analisi 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Instrument+Sans:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<input type="checkbox" id="menu" class="menu-toggle" aria-label="Apri l'indice">
+<header class="bar"><label for="menu" class="menu-btn">Indice</label><span class="bar-title">Analisi Matematica 1 · Uniud</span></header>
+<nav class="toc" aria-label="Capitoli"><div class="toc-head">Analisi Matematica 1</div><ol><li><a href="../index.html">Copertina</a></li>
+<li><a href="../capitoli/01-logica-insiemi.html"><span class="n">1</span>Logica, insiemi e quantificatori</a></li>
+<li><a href="../capitoli/02-intervalli.html"><span class="n">2</span>Insiemi numerici e intervalli</a></li>
+<li><a href="../capitoli/03-numeri-complessi.html"><span class="n">3</span>I numeri complessi</a></li>
+<li><a href="../capitoli/04-funzioni-reali.html"><span class="n">4</span>Funzioni reali di una variabile</a></li>
+<li><a href="../capitoli/05-limiti-continuita.html"><span class="n">5</span>Limiti e continuità</a></li>
+<li><a href="../capitoli/06-derivate.html"><span class="n">6</span>Le derivate</a></li>
+<li><a href="../capitoli/07-successioni-serie.html"><span class="n">7</span>Successioni e serie numeriche</a></li>
+<li><a href="../capitoli/08-serie-di-potenze.html"><span class="n">8</span>Serie di potenze</a></li>
+<li><a href="../capitoli/09-integrali.html"><span class="n">9</span>Calcolo integrale in una variabile</a></li>
+<li><a href="../capitoli/10-funzioni-razionali.html" aria-current="page"><span class="n">10</span>Integrazione delle funzioni razionali</a></li>
+<li><a href="../capitoli/11-integrali-impropri.html"><span class="n">11</span>Integrali impropri</a></li>
+<li><a href="../capitoli/12-integrali-senso-pratico.html"><span class="n">12</span>A cosa servono gli integrali</a></li>
+<li class="off"><span class="n">13</span>Calcolo differenziale in più variabili</li>
+<li class="off"><span class="n">14</span>Equazioni differenziali ordinarie</li></ol></nav>
+<main class="page"><header class="ch-head"><div class="ch-num">Capitolo 10</div><h1>Integrazione delle funzioni razionali</h1><p class="ch-sub">Fratti semplici: radici distinte, ripetute, fattore irriducibile, divisione</p></header>
+<details class="mini" open><summary>In questo capitolo</summary><ol><li><a href="#che-cose-e-quando-serve">Che cos&#x27;e e quando serve</a></li><li><a href="#tavola-delle-primitive-utili">Tavola delle primitive utili</a></li><li><a href="#caso-1---fattori-lineari-distinti">Caso 1 - Fattori lineari
+distinti</a></li><li><a href="#caso-2---fattori-lineari-ripetuti">Caso 2 - Fattori lineari
+ripetuti</a></li><li><a href="#caso-3---fattore-quadratico-irriducibile">Caso 3 - Fattore
+quadratico irriducibile</a></li><li><a href="#caso-4---divisione-preliminare">Caso 4 - Divisione
+preliminare</a></li><li><a href="#le-trappole-da-evitare">Le trappole da evitare</a></li><li><a href="#prossimo-passo">Prossimo passo</a></li></ol></details>
+<article class="testo"><p>Metodo dei fratti semplici — Analisi Matematica I — Pierluigi
+Ceccon</p><h2 id="che-cose-e-quando-serve">Che cos'e e quando serve</h2>
+<p>Una funzione razionale e il rapporto di due polinomi, P(x)/Q(x).
+Quando l'integrale non compare nella tavola delle primitive, il metodo
+dei fratti semplici permette di spezzare la frazione difficile in una
+somma di frazioni facili, ognuna con primitiva nota: logaritmo,
+arctangente o potenza.</p>
+<p>Prerequisito: il metodo si applica alle frazioni proprie, cioe quando
+il grado del numeratore e minore del grado del denominatore. Se non lo
+e, si esegue prima la divisione tra polinomi (vedi Caso 4).</p>
+<p>Fonti: l'integrazione delle funzioni razionali e contenuto del testo
+Bertsch-Dal Passo-Giacomelli; non e trattata nella dispensa del docente
+"1) Integrale di Riemann.pdf".</p>
+<h2 id="tavola-delle-primitive-utili">Tavola delle primitive utili</h2>
+<div class="plate"><img src="../img/10-funzioni-razionali/Manuale_funzioni_razionali_PC_image6.png" alt="" loading="lazy" class="figura" style="width:min(600px,100%)"></div>
+<h2 id="caso-1---fattori-lineari-distinti">Caso 1 - Fattori lineari
+distinti</h2>
+<h3 id="ricetta">Ricetta</h3>
+<ol type="1">
+<li><p>Fattorizza il denominatore in fattori lineari tutti
+distinti.</p></li>
+<li><p>Scrivi una frazione A/(x-a) per ogni fattore.</p></li>
+<li><p>Moltiplica per il denominatore comune ed elimina le
+frazioni.</p></li>
+<li><p>Trova le costanti con la copertura (metti x = radice di ciascun
+fattore).</p></li>
+<li><p>Integra ogni pezzo come un logaritmo: l'integrale di A/(x-a) e
+A*ln|x-a|.</p></li>
+<li><p>Somma tutto + C e verifica derivando.</p></li>
+</ol>
+<h3 id="come-appare-un-problema-difficile-somma-di-problemi-facili">Come
+appare (un problema difficile = somma di problemi facili)</h3>
+<div class="plate"><img src="../img/10-funzioni-razionali/Manuale_funzioni_razionali_PC_image8.png" alt="" loading="lazy" class="figura" style="width:min(600px,100%)"></div>
+<h3 id="esempio-svolto">Esempio svolto</h3>
+<div class="plate"><img src="../img/10-funzioni-razionali/Manuale_funzioni_razionali_PC_image3.png" alt="" loading="lazy" class="figura" style="width:min(600px,100%)"></div>
+<h2 id="caso-2---fattori-lineari-ripetuti">Caso 2 - Fattori lineari
+ripetuti</h2>
+<h3 id="ricetta-1">Ricetta</h3>
+<ol type="1">
+<li><p>A un fattore (x-a) elevato a k dedica k termini, uno per ogni
+potenza da 1 a k.</p></li>
+<li><p>La copertura (x = a) ti da subito il coefficiente della potenza
+piu alta.</p></li>
+<li><p>Gli altri coefficienti: sostituisci un secondo valore comodo (di
+solito x = 0).</p></li>
+<li><p>Integra: solo la potenza 1 da il logaritmo; le potenze da 2 in su
+danno frazioni, con il loro segno meno.</p></li>
+</ol>
+<h3
+id="come-appare-due-comportamenti-diversi-vicino-allo-stesso-polo">Come
+appare (due comportamenti diversi vicino allo stesso polo)</h3>
+<div class="plate"><img src="../img/10-funzioni-razionali/Manuale_funzioni_razionali_PC_image1.png" alt="" loading="lazy" class="figura" style="width:min(600px,100%)"></div>
+<h3 id="esempio-svolto-1">Esempio svolto</h3>
+<div class="plate"><img src="../img/10-funzioni-razionali/Manuale_funzioni_razionali_PC_image7.png" alt="" loading="lazy" class="figura" style="width:min(600px,100%)"></div>
+<h2 id="caso-3---fattore-quadratico-irriducibile">Caso 3 - Fattore
+quadratico irriducibile</h2>
+<h3 id="ricetta-2">Ricetta</h3>
+<ol type="1">
+<li><p>Controlla che il quadratico sia irriducibile: discriminante &lt;
+0, non si spezza in fattori reali.</p></li>
+<li><p>Separa il numeratore nella parte con la x e nella parte
+costante.</p></li>
+<li><p>La parte con la x: sostituzione u = denominatore, viene un
+logaritmo.</p></li>
+<li><p>La parte costante: viene un'arctangente (con il fattore 1/a se il
+denominatore e x^2 + a^2).</p></li>
+</ol>
+<h3 id="come-appare-niente-poli-reali-salta-fuori-larctangente">Come
+appare (niente poli reali: salta fuori l'arctangente)</h3>
+<div class="plate"><img src="../img/10-funzioni-razionali/Manuale_funzioni_razionali_PC_image9.png" alt="" loading="lazy" class="figura" style="width:min(600px,100%)"></div>
+<h3 id="esempio-svolto-2">Esempio svolto</h3>
+<div class="plate"><img src="../img/10-funzioni-razionali/Manuale_funzioni_razionali_PC_image5.png" alt="" loading="lazy" class="figura" style="width:min(600px,100%)"></div>
+<h2 id="caso-4---divisione-preliminare">Caso 4 - Divisione
+preliminare</h2>
+<h3 id="ricetta-3">Ricetta</h3>
+<ol type="1">
+<li><p>Se grado del numeratore &gt;= grado del denominatore, PRIMA
+dividi.</p></li>
+<li><p>Fai comparire il denominatore al numeratore (o esegui la
+divisione): ottieni quoziente + resto/denominatore.</p></li>
+<li><p>Il quoziente e un polinomio: integralo direttamente. Attenzione:
+l'integrale di 1 e x, e un addendo da non dimenticare.</p></li>
+<li><p>Il resto/denominatore e una frazione propria: applica il caso
+giusto dei fratti semplici.</p></li>
+</ol>
+<h3 id="come-appare-allinfinito-la-funzione-tende-al-quoziente">Come
+appare (all'infinito la funzione tende al quoziente)</h3>
+<div class="plate"><img src="../img/10-funzioni-razionali/Manuale_funzioni_razionali_PC_image2.png" alt="" loading="lazy" class="figura" style="width:min(600px,100%)"></div>
+<h3 id="esempio-svolto-3">Esempio svolto</h3>
+<div class="plate"><img src="../img/10-funzioni-razionali/Manuale_funzioni_razionali_PC_image4.png" alt="" loading="lazy" class="figura" style="width:min(600px,100%)"></div>
+<h2 id="le-trappole-da-evitare">Le trappole da evitare</h2>
+<ul>
+<li><p>Doppia negazione: -(-cos x) = +cos x. Rallenta sempre sui
+segni.</p></li>
+<li><p>Il meno della potenza: l'integrale di 1/(x-a)^2 e -1/(x-a).
+Integrare una potenza aggiunge un meno suo.</p></li>
+<li><p>Non dimenticare il quoziente: dopo la divisione, in "1 + ..."
+quell'1 va integrato e diventa x (o t).</p></li>
+<li><p>Denominatore x^2 + qualcosa: se al numeratore c'e la x -&gt;
+logaritmo; se c'e una costante -&gt; arctangente.</p></li>
+<li><p>Isolare i coefficienti: da "1 = k*A" ricava A = 1/k dividendo per
+k, non A = k.</p></li>
+<li><p>Verifica sempre: deriva il risultato di un integrale indefinito e
+controlla che torni la funzione di partenza.</p></li>
+</ul>
+<h2 id="prossimo-passo">Prossimo passo</h2>
+<p>Integrali impropri (sezione 1.6 della dispensa del docente):
+integrali con un estremo all'infinito oppure con la funzione che esplode
+a un estremo. Servono per l'Esercizio 4 del compito, dove compaiono gli
+impropri con il parametro alfa.</p>
+
+</article>
+<nav class="pn"><a class="prev" href="09-integrali.html"><small>Capitolo 9</small>Calcolo integrale in una variabile</a><a class="next" href="11-integrali-impropri.html"><small>Capitolo 11</small>Integrali impropri</a></nav></main>
+</body>
+</html>

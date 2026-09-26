@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calcolo integrale in una variabile · Analisi 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Instrument+Sans:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<input type="checkbox" id="menu" class="menu-toggle" aria-label="Apri l'indice">
+<header class="bar"><label for="menu" class="menu-btn">Indice</label><span class="bar-title">Analisi Matematica 1 · Uniud</span></header>
+<nav class="toc" aria-label="Capitoli"><div class="toc-head">Analisi Matematica 1</div><ol><li><a href="../index.html">Copertina</a></li>
+<li><a href="../capitoli/01-logica-insiemi.html"><span class="n">1</span>Logica, insiemi e quantificatori</a></li>
+<li><a href="../capitoli/02-intervalli.html"><span class="n">2</span>Insiemi numerici e intervalli</a></li>
+<li><a href="../capitoli/03-numeri-complessi.html"><span class="n">3</span>I numeri complessi</a></li>
+<li><a href="../capitoli/04-funzioni-reali.html"><span class="n">4</span>Funzioni reali di una variabile</a></li>
+<li><a href="../capitoli/05-limiti-continuita.html"><span class="n">5</span>Limiti e continuità</a></li>
+<li><a href="../capitoli/06-derivate.html"><span class="n">6</span>Le derivate</a></li>
+<li><a href="../capitoli/07-successioni-serie.html"><span class="n">7</span>Successioni e serie numeriche</a></li>
+<li><a href="../capitoli/08-serie-di-potenze.html"><span class="n">8</span>Serie di potenze</a></li>
+<li><a href="../capitoli/09-integrali.html" aria-current="page"><span class="n">9</span>Calcolo integrale in una variabile</a></li>
+<li><a href="../capitoli/10-funzioni-razionali.html"><span class="n">10</span>Integrazione delle funzioni razionali</a></li>
+<li><a href="../capitoli/11-integrali-impropri.html"><span class="n">11</span>Integrali impropri</a></li>
+<li><a href="../capitoli/12-integrali-senso-pratico.html"><span class="n">12</span>A cosa servono gli integrali</a></li>
+<li class="off"><span class="n">13</span>Calcolo differenziale in più variabili</li>
+<li class="off"><span class="n">14</span>Equazioni differenziali ordinarie</li></ol></nav>
+<main class="page"><header class="ch-head"><div class="ch-num">Capitolo 9</div><h1>Calcolo integrale in una variabile</h1><p class="ch-sub">Riemann, teorema fondamentale, primitive, per parti, per sostituzione</p></header>
+<details class="mini" open><summary>In questo capitolo</summary><ol><li><a href="#lintegrale-definito-come-area">1. L&#x27;integrale definito come
+area</a></li><li><a href="#teorema-fondamentale-e-primitive">2. Teorema fondamentale e
+primitive</a></li><li><a href="#primitive-immediate-e-linearità">3. Primitive immediate e
+linearità</a></li><li><a href="#integrazione-per-sostituzione">4. Integrazione per
+sostituzione</a></li><li><a href="#integrazione-per-parti">5. Integrazione per parti</a></li><li><a href="#funzioni-razionali-fratti-semplici">6. Funzioni razionali
+(fratti semplici)</a></li><li><a href="#errori-da-evitare-promemoria">7. Errori da evitare
+(promemoria)</a></li><li><a href="#riepilogo-della-lezione">Riepilogo della lezione</a></li><li><a href="#che-cosè-lintegrale">1. Che cos&#x27;è l&#x27;integrale</a></li><li><a href="#integrale-con-segno">2. Integrale con segno</a></li><li><a href="#primitive-e-integrale-indefinito">3. Primitive e integrale
+indefinito</a></li><li><a href="#teorema-fondamentale-del-calcolo">4. Teorema fondamentale del
+calcolo</a></li><li><a href="#tavola-delle-primitive-elementari">5. Tavola delle primitive
+elementari</a></li><li><a href="#integrazione-per-parti">6. Integrazione per parti</a></li><li><a href="#integrazione-per-sostituzione">7. Integrazione per
+sostituzione</a></li><li><a href="#errori-da-non-ripetere">8. Errori da non ripetere</a></li></ol></details>
+<article class="testo"><h2 id="lintegrale-definito-come-area">1. L'integrale definito come
+area</h2>
+<p>L'integrale serve ad accumulare: somma tanti piccoli contributi.
+Geometricamente questa somma è l'area sotto la curva, fra due estremi a
+e b.</p>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image18.png" alt="" loading="lazy" class="formula" style="width:min(112px,100%)"></div>
+<p>Nel simbolo: il segno di integrale è una "S" che sta per somma; a e b
+sono gli estremi; f(x) è l'altezza della curva; dx è una larghezza
+piccolissima. L'area si ottiene sommando tanti rettangolini di base dx e
+altezza f(x).</p>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image8.png" alt="" loading="lazy" class="figura" style="width:min(469px,100%)"></div>
+<p>Più i rettangoli si assottigliano (base dx sempre più piccola), più
+la loro somma coincide con l'area vera: questo è ciò che fa il simbolo
+di integrale.</p>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image10.png" alt="" loading="lazy" class="figura" style="width:min(469px,100%)"></div>
+<p>Attenzione: se la curva va sotto l'asse x, quel tratto conta come
+area negativa (area con segno).</p>
+<h2 id="teorema-fondamentale-e-primitive">2. Teorema fondamentale e
+primitive</h2>
+<p>Una primitiva F di f è una funzione che, derivata, ridà f:</p>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image11.png" alt="" loading="lazy" class="formula" style="width:min(130px,100%)"></div>
+<p>Il teorema fondamentale del calcolo dice che, per calcolare l'area,
+basta trovare una primitiva e fare la differenza agli estremi:</p>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image3.png" alt="" loading="lazy" class="formula" style="width:min(247px,100%)"></div>
+<p>Quindi derivare e integrare sono operazioni inverse: per integrare si
+cerca "chi, derivato, dà f". Quando cerchiamo la primitiva in generale
+scriviamo l'integrale indefinito, con la costante +C:</p>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image9.png" alt="" loading="lazy" class="formula" style="width:min(208px,100%)"></div>
+<p>Il +C c'è perché la derivata di una costante è zero: infinite
+funzioni che differiscono per una costante hanno la stessa derivata. Il
+legame si vede bene osservando che f è la pendenza della sua primitiva
+F: dove f è positiva F sale, dove f è negativa F scende, dove f vale
+zero F ha un estremo.</p>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image15.png" alt="" loading="lazy" class="figura" style="width:min(469px,100%)"></div>
+<h2 id="primitive-immediate-e-linearità">3. Primitive immediate e
+linearità</h2>
+<p>La regola più usata è quella delle potenze: l'esponente sale di uno e
+si divide per il nuovo esponente.</p>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image2.png" alt="" loading="lazy" class="formula" style="width:min(313px,100%)"></div>
+<p>Vale anche la linearità: l'integrale di una somma è la somma degli
+integrali e le costanti escono fuori.</p>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image21.png" alt="" loading="lazy" class="formula" style="width:min(333px,100%)"></div>
+<h3 id="tavola-delle-primitive-immediate">Tavola delle primitive
+immediate</h3>
+<p>Sono le derivate elementari lette al contrario, da sapere a
+memoria:</p>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image6.png" alt="" loading="lazy" class="formula" style="width:min(145px,100%)"></div>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image4.png" alt="" loading="lazy" class="formula" style="width:min(166px,100%)"></div>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image5.png" alt="" loading="lazy" class="formula" style="width:min(178px,100%)"></div>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image20.png" alt="" loading="lazy" class="formula" style="width:min(211px,100%)"></div>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image26.png" alt="" loading="lazy" class="formula" style="width:min(229px,100%)"></div>
+<p>Due sono "dispettose": la primitiva del seno è meno coseno (occhio al
+segno) e 1/x dà il logaritmo (è il caso escluso dalla regola delle
+potenze, con n = -1). Questo schema riassume derivate e integrali delle
+funzioni trigonometriche come giri in versi opposti sullo stesso
+cerchio.</p>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image28.png" alt="" loading="lazy" class="figura" style="width:min(469px,100%)"></div>
+<h2 id="integrazione-per-sostituzione">4. Integrazione per
+sostituzione</h2>
+<p>È la regola della catena letta al contrario. Si usa quando dentro
+l'integrale c'è una funzione composta con accanto la derivata del suo
+"interno". Si pone t uguale all'interno, si calcola dt e si riscrive
+tutto in t. Esempio: nell'integrale di 2x·cos(x²) l'interno è x², e la
+sua derivata 2x è già presente.</p>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image19.png" alt="" loading="lazy" class="formula" style="width:min(351px,100%)"></div>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image24.png" alt="" loading="lazy" class="formula" style="width:min(289px,100%)"></div>
+<p>Spesso la derivata dell'interno è presente a meno di una costante: la
+si aggiusta portando fuori il numero mancante (per esempio x dx = ½ dt).
+Alla fine si risostituisce sempre l'interno al posto di t: nel risultato
+non deve restare la t.</p>
+<h2 id="integrazione-per-parti">5. Integrazione per parti</h2>
+<p>Serve per i prodotti di due funzioni diverse (per esempio un
+polinomio per un esponenziale), dove la sostituzione non funziona. Nasce
+dalla regola del prodotto delle derivate, riscritta:</p>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image22.png" alt="" loading="lazy" class="formula" style="width:min(240px,100%)"></div>
+<p>Uno dei due fattori si deriva (u → u'), l'altro si integra (v' → v).
+Si sceglie come u il fattore che, derivandolo, si semplifica: un
+polinomio è perfetto, perché derivandolo abbassa il grado fino a
+sparire.</p>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image25.png" alt="" loading="lazy" class="figura" style="width:min(469px,100%)"></div>
+<p>Esempio a un giro:</p>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image27.png" alt="" loading="lazy" class="formula" style="width:min(250px,100%)"></div>
+<p>Se il polinomio ha grado 2 servono due giri di per parti (uno per
+ogni abbassamento di grado): si applica la formula, resta un integrale
+ancora con un polinomio, e si riapplica la stessa formula.</p>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image7.png" alt="" loading="lazy" class="formula" style="width:min(321px,100%)"></div>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image17.png" alt="" loading="lazy" class="figura" style="width:min(469px,100%)"></div>
+<h2 id="funzioni-razionali-fratti-semplici">6. Funzioni razionali
+(fratti semplici)</h2>
+<p>Una funzione razionale è una frazione con un polinomio sopra e uno
+sotto. L'idea è spezzare la frazione complicata nella somma di frazioni
+più semplici, che si integrano come logaritmi. I tre passi sono:
+fattorizzo il denominatore, spezzo in fratti semplici, integro ogni
+pezzo.</p>
+<h3 id="passo-1-fattorizzare-il-denominatore">Passo 1 — fattorizzare il
+denominatore</h3>
+<p>Se è una differenza di quadrati si usa la regola seguente
+(attenzione: a e b sono le quantità che, al quadrato, danno i due
+termini):</p>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image14.png" alt="" loading="lazy" class="formula" style="width:min(235px,100%)"></div>
+<p>Gli zeri del denominatore diventano i fattori: per esempio x² - 1
+vale zero in x = 1 e x = -1, quindi si fattorizza in (x-1)(x+1).</p>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image12.png" alt="" loading="lazy" class="figura" style="width:min(469px,100%)"></div>
+<h3 id="passo-2-spezzare-e-trovare-a-e-b">Passo 2 — spezzare e trovare A
+e B</h3>
+<p>Ogni fattore diventa il denominatore di una frazione semplice, con
+sopra un numero da trovare:</p>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image23.png" alt="" loading="lazy" class="formula" style="width:min(181px,100%)"></div>
+<p>Si tolgono i denominatori (moltiplicando per il denominatore comune)
+e si ottiene 1 = A(x+1) + B(x-1). Poi il trucco dei valori furbi: si
+scelgono i valori di x che spengono un termine alla volta (x = 1 per
+trovare A, x = -1 per trovare B). Nel caso dell'esempio si ottiene A =
+1/2 e B = -1/2.</p>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image1.png" alt="" loading="lazy" class="figura" style="width:min(469px,100%)"></div>
+<h3 id="passo-3-integrare-ogni-pezzo-come-logaritmo">Passo 3 — integrare
+ogni pezzo come logaritmo</h3>
+<p>Ogni fratto semplice dà un logaritmo del fattore lineare (dentro il
+logaritmo va (x-1), non x² - 1):</p>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image13.png" alt="" loading="lazy" class="formula" style="width:min(376px,100%)"></div>
+<p>Il denominatore non è sempre una differenza di quadrati: a volte si
+fattorizza raccogliendo la x in comune, per esempio x² + 2x = x(x+2). Il
+metodo resta identico:</p>
+<div class="plate"><img src="../img/09-integrali/Lezione06_Integrali_image16.png" alt="" loading="lazy" class="formula" style="width:min(348px,100%)"></div>
+<h2 id="errori-da-evitare-promemoria">7. Errori da evitare
+(promemoria)</h2>
+<ul>
+<li><blockquote>
+<p>Negli integrali indefiniti scrivere sempre il +C: senza, la risposta
+è incompleta.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Nei fratti semplici va il fattore lineare dentro il logaritmo:
+ln|x-2|, non ln|x² - 4|.</p>
+</blockquote></li>
+<li><blockquote>
+<p>I fratti hanno la x al denominatore: 1/x si integra come ln|x| (non
+integrare x, che darebbe x²/2).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Segni delle funzioni trigonometriche: il coseno integra in +seno, il
+seno integra in -coseno.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Nella sostituzione, alla fine risostituire sempre l'interno: nel
+risultato non deve restare la t.</p>
+</blockquote></li>
+</ul>
+
+<h2 class="parte" id="riepilogo-della-lezione">Riepilogo della lezione</h2>
+<h2 id="che-cosè-lintegrale">1. Che cos'è l'integrale</h2>
+<p>Integrare significa accumulare: sommare infiniti contributi
+piccolissimi. Geometricamente, l'integrale definito di f sull'intervallo
+[a, b] è l'area (con segno) compresa tra il grafico di f e l'asse x.</p>
+<div class="plate"><img src="../img/09-integrali/Riassunto_Integrali_Lez06_PC_image3.png" alt="" loading="lazy" class="figura" style="width:min(580px,100%)"></div>
+<p>Costruzione di Riemann: si divide [a, b] con una partizione V e si
+stima l'area per difetto (somma inferiore) e per eccesso (somma
+superiore):</p>
+<div class="plate"><img src="../img/09-integrali/Riassunto_Integrali_Lez06_PC_image1.png" alt="" loading="lazy" class="formula" style="width:min(339px,100%)"></div>
+<p>Infittendo le suddivisioni, le due somme si stringono sullo stesso
+valore. Quando coincidono, la funzione è integrabile:</p>
+<div class="plate"><img src="../img/09-integrali/Riassunto_Integrali_Lez06_PC_image5.png" alt="" loading="lazy" class="formula" style="width:min(523px,100%)"></div>
+<p>In pratica sono integrabili tutte le funzioni continue e tutte le
+funzioni monotòne su [a, b]: all'esame, quasi tutto.</p>
+<h2 id="integrale-con-segno">2. Integrale con segno</h2>
+<p>Dove f è negativa, l'integrale conta in negativo. Quindi l'integrale
+è: (area sopra l'asse) − (area sotto l'asse). È diverso dall'area
+geometrica, che è sempre positiva. Per ottenere l'area geometrica: trova
+gli zeri di f, spezza l'integrale in quei punti e prendi il valore
+assoluto dei pezzi negativi.</p>
+<h2 id="primitive-e-integrale-indefinito">3. Primitive e integrale
+indefinito</h2>
+<p>Una primitiva φ di f è una funzione tale che φ′ = f. L'integrale
+indefinito ∫ f dx è l'insieme di TUTTE le primitive, che differiscono
+per una costante: si scrive sempre con la + C.</p>
+<h2 id="teorema-fondamentale-del-calcolo">4. Teorema fondamentale del
+calcolo</h2>
+<p>È il ponte fra derivata e integrale. Prima faccia: la funzione
+integrale ha per derivata la funzione di partenza.</p>
+<div class="plate"><img src="../img/09-integrali/Riassunto_Integrali_Lez06_PC_image17.png" alt="" loading="lazy" class="formula" style="width:min(535px,100%)"></div>
+<p>Seconda faccia (la formula per i conti): l'integrale definito si
+ottiene valutando una qualunque primitiva agli estremi.</p>
+<div class="plate"><img src="../img/09-integrali/Riassunto_Integrali_Lez06_PC_image14.png" alt="" loading="lazy" class="formula" style="width:min(451px,100%)"></div>
+<p>Regola d'oro: in un integrale definito sostituisci gli estremi e
+arriva al NUMERO. Nel risultato non deve restare la x.</p>
+<h2 id="tavola-delle-primitive-elementari">5. Tavola delle primitive
+elementari</h2>
+<p>I cinque mattoni base, da sapere a memoria:</p>
+<div class="tscroll"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>funzione f(x)</strong></th>
+<th><strong>una primitiva φ(x)</strong></th>
+</tr>
+<tr class="odd">
+<th><img src="../img/09-integrali/Riassunto_Integrali_Lez06_PC_image18.png" alt="" loading="lazy" class="formula" style="width:min(175px,100%)"></th>
+<th><img src="../img/09-integrali/Riassunto_Integrali_Lez06_PC_image2.png" alt="" loading="lazy" class="formula" style="width:min(43px,100%)"></th>
+</tr>
+<tr class="header">
+<th><img src="../img/09-integrali/Riassunto_Integrali_Lez06_PC_image16.png" alt="" loading="lazy" class="formula" style="width:min(19px,100%)"></th>
+<th><img src="../img/09-integrali/Riassunto_Integrali_Lez06_PC_image13.png" alt="" loading="lazy" class="formula" style="width:min(64px,100%)"></th>
+</tr>
+<tr class="odd">
+<th><img src="../img/09-integrali/Riassunto_Integrali_Lez06_PC_image15.png" alt="" loading="lazy" class="formula" style="width:min(39px,100%)"></th>
+<th><img src="../img/09-integrali/Riassunto_Integrali_Lez06_PC_image15.png" alt="" loading="lazy" class="formula" style="width:min(39px,100%)"></th>
+</tr>
+<tr class="header">
+<th><img src="../img/09-integrali/Riassunto_Integrali_Lez06_PC_image6.png" alt="" loading="lazy" class="formula" style="width:min(70px,100%)"></th>
+<th><img src="../img/09-integrali/Riassunto_Integrali_Lez06_PC_image10.png" alt="" loading="lazy" class="formula" style="width:min(100px,100%)"></th>
+</tr>
+<tr class="odd">
+<th><img src="../img/09-integrali/Riassunto_Integrali_Lez06_PC_image8.png" alt="" loading="lazy" class="formula" style="width:min(75px,100%)"></th>
+<th><img src="../img/09-integrali/Riassunto_Integrali_Lez06_PC_image6.png" alt="" loading="lazy" class="formula" style="width:min(70px,100%)"></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<h2 id="integrazione-per-parti">6. Integrazione per parti</h2>
+<p>Serve per integrare un prodotto di due funzioni. Nasce dalla regola
+di derivazione del prodotto:</p>
+<div class="plate"><img src="../img/09-integrali/Riassunto_Integrali_Lez06_PC_image11.png" alt="" loading="lazy" class="formula" style="width:min(307px,100%)"></div>
+<p>Strategia: come f (il fattore da derivare) scegli quello che si
+semplifica derivando — di solito la x, che diventa 1. Esempio:</p>
+<div class="plate"><img src="../img/09-integrali/Riassunto_Integrali_Lez06_PC_image9.png" alt="" loading="lazy" class="formula" style="width:min(373px,100%)"></div>
+<p>Verifica utile: per un integrale indefinito, deriva il risultato; se
+riottieni la funzione di partenza, è corretto.</p>
+<h2 id="integrazione-per-sostituzione">7. Integrazione per
+sostituzione</h2>
+<p>Nasce dalla regola della catena, letta al contrario. Si dà un
+"soprannome" t alla parte interna, così l'integrale diventa uno che sai
+già fare:</p>
+<div class="plate"><img src="../img/09-integrali/Riassunto_Integrali_Lez06_PC_image4.png" alt="" loading="lazy" class="figura" style="width:min(600px,100%)"></div>
+<p>Ricetta in 5 passi:</p>
+<ol type="1">
+<li><blockquote>
+<p>Poni t = g(x), cioè la parte interna.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Deriva: dt = g′(x) dx.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Riscrivi tutto in funzione di t (non deve restare nessuna x).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Integra in t usando la tavola delle primitive.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Se è indefinito risostituisci la x; se è definito cambia gli estremi
+in valori di t.</p>
+</blockquote></li>
+</ol>
+<p>Esempio:</p>
+<div class="plate"><img src="../img/09-integrali/Riassunto_Integrali_Lez06_PC_image7.png" alt="" loading="lazy" class="formula" style="width:min(525px,100%)"></div>
+<p>Attenzione all'ordine delle operazioni nel calcolare i nuovi estremi:
+la potenza si fa PRIMA della somma.</p>
+<div class="plate"><img src="../img/09-integrali/Riassunto_Integrali_Lez06_PC_image12.png" alt="" loading="lazy" class="formula" style="width:min(241px,100%)"></div>
+<h2 id="errori-da-non-ripetere">8. Errori da non ripetere</h2>
+<ol type="1">
+<li><blockquote>
+<p>Arriva sempre al NUMERO: in un integrale definito la x deve
+sparire.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Doppia negazione: − (−cos x) = + cos x. Vale anche con i valori di
+sin e cos.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Le potenze si fanno prima delle somme: x³ + 1 ≠ (x + 1)³.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Integrale (con segno) ≠ area geometrica (sempre positiva).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Verifica gli integrali indefiniti derivando il risultato.</p>
+</blockquote></li>
+</ol>
+
+</article>
+<nav class="pn"><a class="prev" href="08-serie-di-potenze.html"><small>Capitolo 8</small>Serie di potenze</a><a class="next" href="10-funzioni-razionali.html"><small>Capitolo 10</small>Integrazione delle funzioni razionali</a></nav></main>
+</body>
+</html>

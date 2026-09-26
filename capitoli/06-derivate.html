@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le derivate · Analisi 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Instrument+Sans:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<input type="checkbox" id="menu" class="menu-toggle" aria-label="Apri l'indice">
+<header class="bar"><label for="menu" class="menu-btn">Indice</label><span class="bar-title">Analisi Matematica 1 · Uniud</span></header>
+<nav class="toc" aria-label="Capitoli"><div class="toc-head">Analisi Matematica 1</div><ol><li><a href="../index.html">Copertina</a></li>
+<li><a href="../capitoli/01-logica-insiemi.html"><span class="n">1</span>Logica, insiemi e quantificatori</a></li>
+<li><a href="../capitoli/02-intervalli.html"><span class="n">2</span>Insiemi numerici e intervalli</a></li>
+<li><a href="../capitoli/03-numeri-complessi.html"><span class="n">3</span>I numeri complessi</a></li>
+<li><a href="../capitoli/04-funzioni-reali.html"><span class="n">4</span>Funzioni reali di una variabile</a></li>
+<li><a href="../capitoli/05-limiti-continuita.html"><span class="n">5</span>Limiti e continuità</a></li>
+<li><a href="../capitoli/06-derivate.html" aria-current="page"><span class="n">6</span>Le derivate</a></li>
+<li><a href="../capitoli/07-successioni-serie.html"><span class="n">7</span>Successioni e serie numeriche</a></li>
+<li><a href="../capitoli/08-serie-di-potenze.html"><span class="n">8</span>Serie di potenze</a></li>
+<li><a href="../capitoli/09-integrali.html"><span class="n">9</span>Calcolo integrale in una variabile</a></li>
+<li><a href="../capitoli/10-funzioni-razionali.html"><span class="n">10</span>Integrazione delle funzioni razionali</a></li>
+<li><a href="../capitoli/11-integrali-impropri.html"><span class="n">11</span>Integrali impropri</a></li>
+<li><a href="../capitoli/12-integrali-senso-pratico.html"><span class="n">12</span>A cosa servono gli integrali</a></li>
+<li class="off"><span class="n">13</span>Calcolo differenziale in più variabili</li>
+<li class="off"><span class="n">14</span>Equazioni differenziali ordinarie</li></ol></nav>
+<main class="page"><header class="ch-head"><div class="ch-num">Capitolo 6</div><h1>Le derivate</h1><p class="ch-sub">Rapporto incrementale, significato geometrico, regole di derivazione</p></header>
+<details class="mini" open><summary>In questo capitolo</summary><ol><li><a href="#lidea-di-derivata">1. L&#x27;idea di derivata</a></li><li><a href="#dal-rapporto-incrementale-alla-tangente">2. Dal rapporto
+incrementale alla tangente</a></li><li><a href="#significato-geometrico">3. Significato geometrico</a></li><li><a href="#le-derivate-elementari">4. Le derivate elementari</a></li><li><a href="#le-regole-di-derivazione">5. Le regole di derivazione</a></li><li><a href="#derivata-crescita-e-punti-di-massimominimo">6. Derivata,
+crescita e punti di massimo/minimo</a></li><li><a href="#a-cosa-serve-in-elettronica">7. A cosa serve in elettronica</a></li><li><a href="#errori-tipici-da-evitare">Errori tipici da evitare</a></li></ol></details>
+<article class="testo"><p>Blocco <strong>calcolo differenziale in una variabile</strong> del
+programma di Udine (MATH-03/A). La derivata è definita a partire dai
+limiti (Lezione 3) e serve per lo studio di funzione e per i problemi di
+ottimizzazione, entrambi obiettivi espliciti del corso.</p><h2 id="lidea-di-derivata">1. L'idea di derivata</h2>
+<p>La derivata misura <strong>quanto in fretta cambia una
+funzione</strong>. Se f(x) descrive una posizione, la derivata è la
+velocità; se descrive una carica, la derivata è la corrente. In una
+parola: la derivata è la <strong>velocità di variazione</strong> della
+funzione, punto per punto.</p>
+<h2 id="dal-rapporto-incrementale-alla-tangente">2. Dal rapporto
+incrementale alla tangente</h2>
+<p>Partiamo da due punti del grafico distanti h. La pendenza della retta
+che li unisce (la <strong>secante</strong>) è il rapporto
+incrementale:</p>
+<p><strong>[ f(x + h) − f(x) ] / h</strong></p>
+<p>Ora facciamo avvicinare il secondo punto al primo, cioè h → 0. La
+secante ruota e si “incolla” alla curva diventando la <strong>retta
+tangente</strong>. La pendenza di quella tangente è la derivata:</p>
+<p><strong>f '(x) = lim (h→0) [ f(x + h) − f(x) ] / h</strong></p>
+<div class="plate"><img src="../img/06-derivate/Analisi1_Lezione04_Derivate_image1.png" alt="" loading="lazy" class="figura" style="width:min(430px,100%)"></div>
+<p class="caption">Fig. 1 — Le secanti (tratteggiate) ruotano verso la tangente
+(arancione) man mano che h → 0. La derivata è la pendenza della
+tangente.</p>
+<h2 id="significato-geometrico">3. Significato geometrico</h2>
+<p>La derivata in un punto è la <strong>pendenza della retta
+tangente</strong> al grafico in quel punto. Pendenza grande = curva
+ripida (cambia in fretta); pendenza piccola = curva quasi piatta (cambia
+poco); pendenza nulla = tangente orizzontale (la funzione, per un
+istante, non cresce né decresce).</p>
+<h2 id="le-derivate-elementari">4. Le derivate elementari</h2>
+<p>Poche formule da sapere a memoria: sono i mattoni con cui si deriva
+tutto il resto.</p>
+<div class="tscroll"><table>
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Funzione f(x)</strong></th>
+<th><strong>Derivata f '(x)</strong></th>
+</tr>
+<tr class="odd">
+<th>c (costante)</th>
+<th>0</th>
+</tr>
+<tr class="header">
+<th>xⁿ</th>
+<th>n · xⁿ⁻¹</th>
+</tr>
+<tr class="odd">
+<th>√x</th>
+<th>1 / (2√x)</th>
+</tr>
+<tr class="header">
+<th>eˣ</th>
+<th>eˣ</th>
+</tr>
+<tr class="odd">
+<th>ln x</th>
+<th>1 / x</th>
+</tr>
+<tr class="header">
+<th>sin x</th>
+<th>cos x</th>
+</tr>
+<tr class="odd">
+<th>cos x</th>
+<th>− sin x</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<p><strong>Esempio.</strong> La derivata di x³ è 3x²; la derivata di x⁵
+è 5x⁴. La regola xⁿ → n·xⁿ⁻¹ le copre entrambe.</p>
+<h2 id="le-regole-di-derivazione">5. Le regole di derivazione</h2>
+<p>Per combinare le funzioni si usano quattro regole:</p>
+<ul>
+<li><blockquote>
+<p>Somma: (f + g)' = f ' + g ' (si deriva pezzo per pezzo).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Prodotto: (f · g)' = f '·g + f·g '.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Quoziente: (f / g)' = (f '·g − f·g ') / g².</p>
+</blockquote></li>
+<li><blockquote>
+<p>Catena (funzione composta): [ g(f(x)) ]' = g '(f(x)) · f '(x) — si
+deriva “da fuori a dentro”.</p>
+</blockquote></li>
+</ul>
+<p><strong>Esempio svolto (catena).</strong> Derivata di (2x + 1)³:
+fuori la potenza, dentro 2x + 1. Risultato: 3·(2x + 1)² · 2 = 6·(2x +
+1)².</p>
+<p><strong>Esempio svolto (prodotto).</strong> Derivata di x·eˣ: (1)·eˣ
++ x·eˣ = eˣ·(1 + x).</p>
+<h2 id="derivata-crescita-e-punti-di-massimominimo">6. Derivata,
+crescita e punti di massimo/minimo</h2>
+<p>Il segno della derivata dice se la funzione cresce o decresce,
+collegando questa lezione alla monotonìa della Lezione 2:</p>
+<ul>
+<li><blockquote>
+<p>f '(x) &gt; 0 sull'intervallo ⇒ la funzione cresce.</p>
+</blockquote></li>
+<li><blockquote>
+<p>f '(x) &lt; 0 sull'intervallo ⇒ la funzione decresce.</p>
+</blockquote></li>
+<li><blockquote>
+<p>f '(x) = 0 in un punto ⇒ punto stazionario: candidato massimo o
+minimo (tangente orizzontale).</p>
+</blockquote></li>
+</ul>
+<div class="plate"><img src="../img/06-derivate/Analisi1_Lezione04_Derivate_image2.png" alt="" loading="lazy" class="figura" style="width:min(420px,100%)"></div>
+<p class="caption">Fig. 2 — Dove la derivata è positiva la funzione cresce, dove è
+negativa decresce; nei punti di massimo e minimo la tangente è
+orizzontale (f ' = 0).</p>
+<p>È questo il meccanismo dei <strong>problemi di
+ottimizzazione</strong>: per trovare il massimo o il minimo di una
+grandezza, si cercano i punti dove la derivata si annulla.</p>
+<h2 id="a-cosa-serve-in-elettronica">7. A cosa serve in elettronica</h2>
+<p>La derivata è ovunque, perché quasi tutte le leggi dei componenti
+legano una grandezza alla velocità di variazione di un'altra.</p>
+<ul>
+<li><blockquote>
+<p>Corrente e carica: i = dq/dt (la corrente è la derivata della carica
+nel tempo).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Induttore: v = L · di/dt (la tensione dipende da quanto rapidamente
+varia la corrente).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Condensatore: i = C · dv/dt (la corrente dipende da quanto
+rapidamente varia la tensione).</p>
+</blockquote></li>
+</ul>
+<div class="plate"><img src="../img/06-derivate/Analisi1_Lezione04_Derivate_image3.png" alt="" loading="lazy" class="figura" style="width:min(430px,100%)"></div>
+<p class="caption">Fig. 3 — Se la carica è q(t) = sin(t), la corrente è la sua
+derivata i(t) = cos(t): dove q è al massimo, la sua velocità di
+variazione (e quindi i) è nulla.</p>
+<h2 id="errori-tipici-da-evitare">Errori tipici da evitare</h2>
+<ul>
+<li><blockquote>
+<p>Dimenticare la regola della catena quando si deriva una funzione
+composta (moltiplicare per la derivata interna).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Applicare la regola del prodotto come se fosse f '·g ' : è invece f
+'·g + f·g '.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Concludere che f '(x) = 0 sia sempre un massimo o un minimo: va
+verificato (può essere un flesso a tangente orizzontale).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Confondere la derivata (pendenza della tangente) con il valore della
+funzione.</p>
+</blockquote></li>
+</ul>
+
+</article>
+<nav class="pn"><a class="prev" href="05-limiti-continuita.html"><small>Capitolo 5</small>Limiti e continuità</a><a class="next" href="07-successioni-serie.html"><small>Capitolo 7</small>Successioni e serie numeriche</a></nav></main>
+</body>
+</html>

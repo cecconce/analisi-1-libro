@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>I numeri complessi · Analisi 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Instrument+Sans:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<input type="checkbox" id="menu" class="menu-toggle" aria-label="Apri l'indice">
+<header class="bar"><label for="menu" class="menu-btn">Indice</label><span class="bar-title">Analisi Matematica 1 · Uniud</span></header>
+<nav class="toc" aria-label="Capitoli"><div class="toc-head">Analisi Matematica 1</div><ol><li><a href="../index.html">Copertina</a></li>
+<li><a href="../capitoli/01-logica-insiemi.html"><span class="n">1</span>Logica, insiemi e quantificatori</a></li>
+<li><a href="../capitoli/02-intervalli.html"><span class="n">2</span>Insiemi numerici e intervalli</a></li>
+<li><a href="../capitoli/03-numeri-complessi.html" aria-current="page"><span class="n">3</span>I numeri complessi</a></li>
+<li><a href="../capitoli/04-funzioni-reali.html"><span class="n">4</span>Funzioni reali di una variabile</a></li>
+<li><a href="../capitoli/05-limiti-continuita.html"><span class="n">5</span>Limiti e continuità</a></li>
+<li><a href="../capitoli/06-derivate.html"><span class="n">6</span>Le derivate</a></li>
+<li><a href="../capitoli/07-successioni-serie.html"><span class="n">7</span>Successioni e serie numeriche</a></li>
+<li><a href="../capitoli/08-serie-di-potenze.html"><span class="n">8</span>Serie di potenze</a></li>
+<li><a href="../capitoli/09-integrali.html"><span class="n">9</span>Calcolo integrale in una variabile</a></li>
+<li><a href="../capitoli/10-funzioni-razionali.html"><span class="n">10</span>Integrazione delle funzioni razionali</a></li>
+<li><a href="../capitoli/11-integrali-impropri.html"><span class="n">11</span>Integrali impropri</a></li>
+<li><a href="../capitoli/12-integrali-senso-pratico.html"><span class="n">12</span>A cosa servono gli integrali</a></li>
+<li class="off"><span class="n">13</span>Calcolo differenziale in più variabili</li>
+<li class="off"><span class="n">14</span>Equazioni differenziali ordinarie</li></ol></nav>
+<main class="page"><header class="ch-head"><div class="ch-num">Capitolo 3</div><h1>I numeri complessi</h1><p class="ch-sub">Forma cartesiana e polare, operazioni, De Moivre, fasori</p></header>
+<details class="mini" open><summary>In questo capitolo</summary><ol><li><a href="#perché-servono-i-numeri-complessi">Perché servono i numeri
+complessi</a></li><li><a href="#che-cosè-un-numero-complesso">1. Che cos&#x27;è un numero
+complesso</a></li><li><a href="#le-due-forme-cartesiana-e-polare">2. Le due forme: cartesiana e
+polare</a></li><li><a href="#il-complesso-coniugato">3. Il complesso coniugato</a></li><li><a href="#somma-e-sottrazione">4. Somma e sottrazione</a></li><li><a href="#prodotto-e-divisione">5. Prodotto e divisione</a></li><li><a href="#potenze-e-radici-la-formula-di-de-moivre">6. Potenze e radici:
+la formula di De Moivre</a></li><li><a href="#a-cosa-servono-in-elettronica">7. A cosa servono in
+elettronica</a></li><li><a href="#errori-tipici-da-evitare">Errori tipici da evitare</a></li></ol></details>
+<article class="testo"><p>Blocco <strong>Fondamenti</strong> del programma di Udine (Ingegneria
+Elettronica, MATH-03/A). Il primo blocco del corso comprende logica,
+teoria degli insiemi e i numeri reali e complessi: i numeri complessi
+sono quindi parte della prima lezione.</p><h2 id="perché-servono-i-numeri-complessi">Perché servono i numeri
+complessi</h2>
+<p>Tra i numeri reali non esiste la radice quadrata di un numero
+negativo: non c'è nessun numero reale il cui quadrato faccia
+<strong>−1</strong>. Per superare questo limite si introduce un numero
+nuovo, l'<strong>unità immaginaria</strong>, definita dalla
+proprietà:</p>
+<p><strong>j² = −1</strong></p>
+<p>In matematica pura si scrive <em>i</em>, ma in elettronica si usa
+<strong>j</strong> perché la lettera i indica già la corrente. Con
+questo mattone nasce un intero mondo di numeri che vivono su un piano
+invece che su una retta.</p>
+<h2 id="che-cosè-un-numero-complesso">1. Che cos'è un numero
+complesso</h2>
+<p>Un numero complesso è una coppia di informazioni: una parte
+<strong>reale</strong> e una parte <strong>immaginaria</strong>. Si
+rappresenta come un punto (o una freccia dall'origine) sul <strong>piano
+complesso</strong>: l'asse orizzontale porta la parte reale, quello
+verticale la parte immaginaria.</p>
+<p><strong>z = a + jb</strong></p>
+<p>dove <strong>a</strong> = Re(z) è la parte reale e <strong>b</strong>
+= Im(z) è la parte immaginaria. Dalla freccia si leggono due grandezze
+fondamentali:</p>
+<ul>
+<li><blockquote>
+<p>il modulo |z| = lunghezza della freccia (quanto è “grande” il
+numero);</p>
+</blockquote></li>
+<li><blockquote>
+<p>la fase φ = angolo che la freccia forma con l'asse reale (in che
+direzione punta).</p>
+</blockquote></li>
+</ul>
+<div class="plate"><img src="../img/03-numeri-complessi/Analisi1_Lezione01_Numeri_complessi_image2.png" alt="" loading="lazy" class="figura" style="width:min(340px,100%)"></div>
+<p class="caption">Fig. 1 — Il numero z = 3 + 4j nel piano: parte reale a = 3, parte
+immaginaria b = 4, modulo |z| = 5, fase φ ≈ 53°.</p>
+<h2 id="le-due-forme-cartesiana-e-polare">2. Le due forme: cartesiana e
+polare</h2>
+<p>Lo stesso numero si può scrivere in due modi, entrambi utili a
+seconda del calcolo.</p>
+<h3 id="forma-cartesiana-o-algebrica">Forma cartesiana (o
+algebrica)</h3>
+<p>z = a + jb — comoda per sommare e sottrarre.</p>
+<h3 id="forma-polare-o-esponenziale">Forma polare (o esponenziale)</h3>
+<p>z = |z|·(cos φ + j sin φ) = |z|·e<sup>jφ</sup> — comoda per
+moltiplicare, dividere ed elevare a potenza.</p>
+<p>Il legame con la forma esponenziale è la <strong>formula di
+Eulero</strong>: e<sup>jφ</sup> = cos φ + j sin φ.</p>
+<h3 id="passaggio-tra-le-due-forme">Passaggio tra le due forme</h3>
+<p>|z| = √(a² + b²) φ = arctan(b / a)</p>
+<p>a = |z|·cos φ b = |z|·sin φ</p>
+<p><strong>Esempio svolto.</strong> Dato z = 3 + 4j: |z| = √(3² + 4²) =
+√25 = 5; φ = arctan(4/3) ≈ 53,13°. Quindi in polare z =
+5·e<sup>j·53°</sup>. Verifica: a = 5·cos 53° ≈ 3, b = 5·sin 53° ≈ 4.
+Torna.</p>
+<h2 id="il-complesso-coniugato">3. Il complesso coniugato</h2>
+<p>Il coniugato di z = a + jb è <strong>z̄ = a − jb</strong>: stesso
+numero con la parte immaginaria cambiata di segno (una riflessione
+rispetto all'asse reale). La sua proprietà chiave è:</p>
+<p><strong>z · z̄ = a² + b² = |z|²</strong></p>
+<p>Il prodotto di un numero per il suo coniugato è un numero
+<strong>reale</strong> (il quadrato del modulo). È il trucco che rende
+possibile la divisione, come si vedrà tra poco.</p>
+<h2 id="somma-e-sottrazione">4. Somma e sottrazione</h2>
+<p>Si sommano (o sottraggono) separatamente le parti reali e le parti
+immaginarie. Geometricamente è la <strong>regola del
+parallelogramma</strong>: la freccia risultante è la diagonale.</p>
+<p>(a + jb) + (c + jd) = (a + c) + j(b + d)</p>
+<div class="plate"><img src="../img/03-numeri-complessi/Analisi1_Lezione01_Numeri_complessi_image4.png" alt="" loading="lazy" class="figura" style="width:min(330px,100%)"></div>
+<p class="caption">Fig. 2 — Somma: z₁ = 3 + j e z₂ = 1 + 2j danno z₁ + z₂ = 4 + 3j
+(diagonale del parallelogramma).</p>
+<p><strong>Esempio svolto.</strong> (3 + j) + (1 + 2j) = (3 + 1) + j(1 +
+2) = 4 + 3j.</p>
+<h2 id="prodotto-e-divisione">5. Prodotto e divisione</h2>
+<h3 id="prodotto">Prodotto</h3>
+<p>In forma cartesiana si moltiplica come un normale binomio, ricordando
+che <strong>j² = −1</strong>. In forma polare, invece, la regola è
+semplicissima:</p>
+<p><strong>i moduli si moltiplicano, le fasi si sommano.</strong></p>
+<div class="plate"><img src="../img/03-numeri-complessi/Analisi1_Lezione01_Numeri_complessi_image3.png" alt="" loading="lazy" class="figura" style="width:min(330px,100%)"></div>
+<p class="caption">Fig. 3 — Prodotto: (|2|, 30°) · (|1.5|, 45°) = (|3|, 75°).
+Moltiplicare per un complesso significa scalare e ruotare.</p>
+<p><strong>Esempio svolto (cartesiano).</strong> (3 + j)(1 + 2j) = 3 +
+6j + j + 2j² = 3 + 7j − 2 = 1 + 7j.</p>
+<p><strong>Esempio svolto (polare).</strong> 2·e<sup>j30°</sup> ×
+1,5·e<sup>j45°</sup> = 3·e<sup>j75°</sup> (2 × 1,5 = 3; 30° + 45° =
+75°).</p>
+<h3 id="divisione">Divisione</h3>
+<p>Si moltiplicano numeratore e denominatore per il <strong>coniugato
+del denominatore</strong>: così il denominatore diventa reale e la
+divisione si sblocca.</p>
+<p><strong>Esempio svolto.</strong> (3 + j)/(1 + 2j) = (3 + j)(1 − 2j) /
+(1 + 2j)(1 − 2j) = (5 − 5j)/5 = 1 − j.</p>
+<h2 id="potenze-e-radici-la-formula-di-de-moivre">6. Potenze e radici:
+la formula di De Moivre</h2>
+<p>In forma polare elevare a potenza è immediato: <strong>si eleva il
+modulo e si moltiplica la fase per l'esponente</strong>.</p>
+<p>z<sup>n</sup> = |z|<sup>n</sup>·e<sup>jnφ</sup></p>
+<p>Per le radici vale il fenomeno più interessante: un numero complesso
+ha <strong>n radici n-esime</strong>, tutte con lo stesso modulo e
+disposte su un cerchio, sfasate regolarmente di 360°/n.</p>
+<div class="plate"><img src="../img/03-numeri-complessi/Analisi1_Lezione01_Numeri_complessi_image1.png" alt="" loading="lazy" class="figura" style="width:min(330px,100%)"></div>
+<p class="caption">Fig. 4 — Le tre radici cubiche di 8: stesso modulo (2), sfasate
+di 120° l'una dall'altra.</p>
+<p><strong>Esempio svolto.</strong> Le radici cubiche di 8: modulo ∛8 =
+2, angoli 0°, 120°, 240°. La prima è il numero reale 2; le altre due
+sono complesse.</p>
+<h2 id="a-cosa-servono-in-elettronica">7. A cosa servono in
+elettronica</h2>
+<p>Questa è la ragione per cui i complessi tornano ovunque nei corsi
+successivi (Elettrotecnica, Teoria dei segnali, Circuiti).</p>
+<ul>
+<li><blockquote>
+<p>Fasori: una tensione o corrente alternata ha un'ampiezza e uno
+sfasamento; un numero complesso li racchiude entrambi (modulo =
+ampiezza, fase = sfasamento).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Impedenza: Z = R + jX è un numero complesso — parte reale =
+resistenza, parte immaginaria = reattanza di condensatori e
+induttori.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Le derivate e gli integrali delle sinusoidi diventano semplici
+moltiplicazioni per jω: i calcoli difficili si trasformano in aritmetica
+tra complessi.</p>
+</blockquote></li>
+</ul>
+<h2 id="errori-tipici-da-evitare">Errori tipici da evitare</h2>
+<ul>
+<li><blockquote>
+<p>Nel prodotto in forma cartesiana, dimenticare che j² = −1 (e lasciare
+il termine come se fosse +1).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Confondere il modulo |z| con la parte reale a: sono diversi (a meno
+che il numero non sia reale puro).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Nella divisione, dimenticare di moltiplicare per il coniugato del
+denominatore.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Nel calcolo della fase, non controllare il quadrante: arctan(b/a) da
+solo non distingue, per esempio, il primo dal terzo quadrante.</p>
+</blockquote></li>
+</ul>
+
+</article>
+<nav class="pn"><a class="prev" href="02-intervalli.html"><small>Capitolo 2</small>Insiemi numerici e intervalli</a><a class="next" href="04-funzioni-reali.html"><small>Capitolo 4</small>Funzioni reali di una variabile</a></nav></main>
+</body>
+</html>
